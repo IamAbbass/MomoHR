@@ -1,0 +1,845 @@
+<root>
+   
+    <login_screen>
+        <title>Simple Hr</title>
+        <email_or_phone>Email or Phone</email_or_phone>
+        <email_or_phone_colon>Email or Phone:</email_or_phone_colon>
+        <password>Password</password>
+        <password_colon>Password:</password_colon>
+        <forgot_password>Forgot password ?</forgot_password>
+        <remember_me>Remember me</remember_me>
+        <login>Login</login>
+        <dont_have_an_account>Don't have an account yet ?</dont_have_an_account>
+        <create_account>Create an account</create_account>
+        <welcome_back>Welcome back</welcome_back>
+        <exclamation_mark>!</exclamation_mark>
+        <you_are_login_as>you are login as</you_are_login_as>
+        <invalid_password>Login Failed! Invalid Password.</invalid_password>
+        <invalid_email_or_password>Login Failed! Invalid Email / Password.</invalid_email_or_password>
+    </login_screen>
+    <empty_login>
+        <err_msg>Enter any username and password.</err_msg>
+    </empty_login>
+    <reset_password_screen>
+        <title>Reset Password</title>
+        <help>Enter your e-mail address below to reset your password.</help>
+        <email>Email</email>
+        <back>Back</back>
+        <reset>Reset</reset>
+    </reset_password_screen>
+    
+    <signup_screen>
+        <title>Sign Up</title>
+        <full_name>Full Name</full_name>
+        <email>Email</email>
+        <phone>Phone</phone>
+        <password>Password</password>
+        <re_password>Re-Type Your Password</re_password>
+        <i_agree>I agree to the</i_agree>
+        <terms>Terms of Service</terms>
+        <and>and</and>
+        <policy>Privacy Policy</policy>
+        <back>Back</back>
+        <signup>Signup</signup>
+        <sorry_but>Sorry but, </sorry_but>
+        <this_email>this email</this_email>
+        <this_phone>this phone</this_phone>
+        <already_exists>already exists</already_exists>
+        <please_try_later>please try later!</please_try_later>
+        <success>Success!</success>
+        <you_signed_up>You signed up, now please login!</you_signed_up>
+    </signup_screen>
+    <auth_step_1>
+        <digit_code>Please enter your new 4-Digit pin code.</digit_code>
+        <code_login>You will need to use this code to login app next time!</code_login>
+        <pin_code>Pin code must be a 4 digit number only!</pin_code>
+        <invalid_email_phone>Invalid email or phone number!</invalid_email_phone>
+        <empty_phone>Please enter your email or phone number!</empty_phone>
+    </auth_step_1>
+    <auth_step_2>
+        <hey_1>Hey !!</hey_1>
+        <pin_code>Pin code must be a 4 digit number only!</pin_code>
+        <hey_2>Hey !!</hey_2>
+        <invalid_pin>Invalid Pin Code!</invalid_pin>
+        <no_account>No account found with this email/phone number!</no_account>
+        <empty_pin>Please enter your pin code!</empty_pin>
+    </auth_step_2>
+    <check>
+        <success_marked>Successfully marked</success_marked>
+        <exclimation>!</exclimation>
+        <location_null>You are not in the office premises!</location_null>
+        <location_count>Office location is not defined, please contact your administrator!</location_count>
+        <location_premises>You are not in the office premises!</location_premises>
+        <try_later>Please try later!</try_later>
+    </check>
+    <reply>
+        <video>video</video>
+        <image>image</image>
+        <unknown>unknown</unknown>
+        <text>text</text>
+        <success>SUCCESS</success>
+    </reply>
+    <upload>
+        <failed>failed</failed>
+    </upload>
+    <active_inactive>
+        <no_access>You have no access to perform this action!</no_access>
+        <blocked>Blocked</blocked>
+        <unblock>Unblocked</unblock>
+        <please_try>Please try later!</please_try>
+    </active_inactive>
+    <del_schedule>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+        <ok>OK</ok>
+    </del_schedule>
+    <del_user>
+        <no_access>You have no access to perform this action!</no_access>
+    </del_user>
+    <get_locations>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+        <no_location>No locations!</no_location>
+    </get_locations>
+    <geo_fence>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+        <office_location>Office location</office_location>
+        <success>successfully saved !</success>
+        <failed>FAILED</failed>
+    </geo_fence>
+    <upload_2>
+        <failed>failed</failed> 
+    </upload_2>
+    <admin_access>
+        <access_level>Access Level of</access_level>
+        <select_all>Seleect All</select_all>
+        <de_select_all>Deselect All</de_select_all>
+        <schedule_access_level>Schedule Access Level</schedule_access_level>
+        <save>Save</save>
+        <cancel>Cancel</cancel>
+        <schedule_access_level_for>Schedule Access Level for</schedule_access_level_for>
+        <new_trigger>Create New Trigger</new_trigger>
+        <access_levels>Access Levels</access_levels>
+        <access_ctrl>(hold 'ctrl' to select multiple)</access_ctrl>
+        <select_action>Select Action:</select_action>
+        <allow_access>Allow Access</allow_access>
+        <block_access>Block Access</block_access>
+        <trigger_date_time_colon>Trigger Date-Time:</trigger_date_time_colon>
+        <trigger_date_time>Trigger Date-Time</trigger_date_time>
+        <create>Create</create>
+        <triggers>Triggers</triggers>
+        <action>Action</action>
+        <trigger_time>Trigger Time</trigger_time>
+        <option>Option</option>
+        <allow_access_to>Allow Access to:</allow_access_to>
+        <block_access_to>Block Access to:</block_access_to>
+        <back>Back</back>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+        <colon>:</colon>
+    </admin_access>
+    <select_device>
+        <invalid_device>Invalid Device:</invalid_device>
+        <cannot_find>Can not find this device ID</cannot_find>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+    </select_device>
+    <exe_schedule_trigger>
+        <success>Success:</success>
+        <access_level>Access Level Trigger Scheduled !</access_level>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+    </exe_schedule_trigger>
+    <exe_profile>
+        <sorry_but>Sorry but</sorry_but>
+        <this_phone>this phone</this_phone>
+        <this_email>this email</this_email>
+        <already_exists>already exists!</already_exists>
+        <profile_updated>Profile Successfully Updated!</profile_updated>
+        <email_updated>Email Successfully Updated!</email_updated>
+        <pass_updated>Password Successfully Updated!</pass_updated>
+        <pass_not_matched>Password not matched!</pass_not_matched>
+        <pass_again>Please enter password again</pass_again>
+        <invalid_pass>Invalid Password!</invalid_pass>
+        <picture_update>Picture updated successfully!</picture_update>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+    </exe_profile>
+    <exe_multi_del>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+    </exe_multi_del>
+    <exe_device_manage>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+        <success>Success:</success>
+        <device_setting>Device settings updated!</device_setting>
+    </exe_device_manage>
+    <exe_del_photo>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+        <success>Success:</success>
+        <del_photo>Photo deleted successfully!</del_photo>
+    </exe_del_photo>
+    <del_fence>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+        <success>Success:</success>
+        <location_del>Location deleted successfully!</location_del>
+    </del_fence>
+    <exe_del_block_url>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+        <success>Success:</success>
+        <url_del>URL deleted successfully!</url_del>
+    </exe_del_block_url>
+     <exe_default_access>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+        <success>Success:</success>
+        <default_perm>Default Permissions Updated!</default_perm>
+    </exe_default_access>
+    <exe_admin_access>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+        <failed>Failed:</failed>
+        <admin_not_found>Admin not found!</admin_not_found>
+        <cannot_update_user>Can not update user access for this admin!</cannot_update_user>
+        <perm_updated>Permissions Updated</perm_updated>
+        <for_admin>for admin ID</for_admin>
+    </exe_admin_access>
+    <exe_add_videos>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+        <success>Success</success>
+        <colon>:</colon>
+        <added_video>New Video added!</added_video>
+        <sorry_but>Sorry but</sorry_but>
+        <please_try_later>please try later!</please_try_later>
+    </exe_add_videos>
+    <exe_add_photos>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+        <success>Success</success>
+        <colon>:</colon>
+        <added_photo>New Photo added!</added_photo>
+        <sorry_but>Sorry but</sorry_but>
+        <please_try_later>please try later!</please_try_later>
+    </exe_add_photos>
+    <exe_add_block_url>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+        <success>Success</success>
+        <colon>:</colon>
+        <added_url>New URL added!</added_url>
+        <sorry_but>Sorry but</sorry_but>
+        <this_email>this email</this_email>
+        <this_phone>this phone</this_phone>
+        <already_exists>already exists</already_exists>
+        <please_try_later>please try later!</please_try_later>
+    </exe_add_block_url>
+    
+    
+    <cron_access>
+        <access>Access</access>
+        <has>has</has>
+        <for_your>for your store.</for_your>
+        <allowed>allowed</allowed>
+        <not_allowed>ended</not_allowed>
+    </cron_access>
+    
+    <left_menu>
+        <dashboard>Dashboard</dashboard>
+        <administrators>Administrators</administrators>
+        <my_users>My Users</my_users>
+        <contacts>Contacts</contacts>
+        <call_logs>Call Logs</call_logs>
+        <text_messages>Text Messages</text_messages>
+        <location>Location</location>
+        <browser_history>Browser History</browser_history>
+        <installed_apps>Installed Apps</installed_apps>
+        <attendance>Attendance</attendance>
+        <block_website>Block Websites</block_website>
+        <videos>Videos</videos>
+        <photos>Photos</photos>
+        <viber>Viber</viber>
+        <device_management>Device Management</device_management>
+        <message_section>Message Section</message_section>
+        <remote_device_lock>Remote Device Lock</remote_device_lock>
+    </left_menu>
+    
+    <header>
+        <title>Simple Hr</title>
+        <device_colon>Device:</device_colon>
+        <add_new_user>Add New User</add_new_user>
+        <you>You</you>
+        <download_app>Download App</download_app>
+        <my_profile>My Profile</my_profile>
+        <set_default_access>Set Default Access</set_default_access>
+        <geo_fencing>Geo Fencing</geo_fencing>
+        <logout>Log Out</logout>
+        <root_admin>Root Admin</root_admin>
+        <admin>Admin</admin>
+        <user>User</user>       
+    </header>
+    
+    <profile>
+        <your_profile>Your Profile</your_profile>
+        <no_image>No Image</no_image>
+        <no_email>No Email</no_email>
+        <click_on_image_to_change>Click on image to change</click_on_image_to_change>
+        <root_admin>Root Admin</root_admin>
+        <admin>Admin</admin>
+        <user>User</user>
+        <profile_account>Profile Account</profile_account>
+        <personal_info>Personal Info</personal_info>
+        <change_email>Change Email</change_email>
+        <change_pass>Change Password</change_pass>
+        <name_colon>Name:</name_colon>
+        <contact_colon>Contact:</contact_colon>
+        <address_colon>Address:</address_colon>
+        <city_colon>City:</city_colon>
+        <country_colon>Country:</country_colon>
+        <save_changes>Save Changes</save_changes>
+        <cancel>Cancel</cancel>
+        <update_email>Update Email</update_email>
+        <current_pass_colon>Current Password:</current_pass_colon>
+        <new_pass_colon>New Password:</new_pass_colon>
+        <re_new_pass_colon>Re-type New Password:</re_new_pass_colon>
+        <update_password>Update Password</update_password>
+        <admins_profile>'s Profile</admins_profile>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+    </profile>
+    
+    <default_access>
+        <default_access>Default Access</default_access>
+        <select_all>Select All</select_all>
+        <de_select_all>Deselect All</de_select_all>
+        <cancel>Cancel</cancel>
+        <save>Save</save>
+        <contacts>Contacts</contacts>
+        <call_logs>Call Logs</call_logs>
+        <text_messages>Text Messages</text_messages>
+        <location>Location</location>
+        <browser_history>Browser History</browser_history>
+        <installed_apps>Installed Apps</installed_apps>
+        <attendance>Attendance</attendance>
+        <block_website>Block Websites</block_website>
+        <videos>Videos</videos>
+        <photos>Photos</photos>
+        <viber>Viber</viber>
+        <device_management>Device Management</device_management>
+        <message_section>Message Section</message_section>
+        <remote_device_lock>Remote Device Lock</remote_device_lock>
+        <success>Success: Default Permissions Updated!</success>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+    </default_access>
+
+    <geo_fencing>
+        <geo_fencing>Geo Fencing</geo_fencing>
+        <saved_locations>Saved Locations:</saved_locations>
+        <name_this>Please name this location:</name_this>
+        <saving_location>Saving Location</saving_location>
+        <location_saved>Location Saved!</location_saved>
+        <saving_location_failed>Failed to save location!</saving_location_failed>
+        
+        <confirm_delete_location>Are you sure you want you delete this location ?</confirm_delete_location>
+        <created>Created:</created>
+        <delete>Delete</delete>
+        <name>Name:</name>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+    </geo_fencing>
+    
+    <dashboard>
+        <dashboard>Dashboard</dashboard>
+        <root_admin>Root Admin</root_admin>
+        <admin>Admin</admin>
+        <user>User</user>
+        <welcome>WELCOME !</welcome>
+        <view_profile>View Profile</view_profile>
+        <platform>PLATFORM:</platform>
+        <version>VERSION:</version>
+        <manufacturer>MANUFACTURER:</manufacturer>
+        <model>MODEL:</model>
+        <serial>SERIAL:</serial>
+        <uuid>UUID:</uuid>
+        <never_synced>NEVER SYNCED</never_synced>
+        <virtual>VIRTUAL:</virtual>
+        <cordova>CORDOVA:</cordova>
+        <last_synced>LAST SYNCED</last_synced>
+    </dashboard>
+    
+    <administrators>
+        <showing_all_records>Showing all records</showing_all_records>
+        <search>Searches</search>
+        <filter>Filter</filter>
+        <administrators>Administrators</administrators>
+        <entries>Entries</entries>
+        <search_colon>Search:</search_colon>
+        <name>Name</name>
+        <email>Email</email>
+        <contact>Contact</contact>
+        <registration_date>Registration Date</registration_date>
+        <sub_users>Sub-Users</sub_users>
+        <users>User(s)</users>
+        <status>Status</status>
+        <perm_head>Permissions</perm_head>
+        <action>Actions</action>
+        <active>Active</active>
+        <inactive>Inactive (Can not login)</inactive>
+        <all_permissions>All Permissions</all_permissions>
+        <no_permissions>No Permissions</no_permissions>
+        <restrictions>Restriction(s)</restrictions>
+        <permission_s>Permission(s)</permission_s>
+        <edit_profile>Edit Profile</edit_profile>
+        <view_geo_fence>View Geo Fence</view_geo_fence>
+        <create_user>Create User</create_user>
+        <block_unblock>Block/Unblock</block_unblock>
+        <no_date>No data available in table</no_date>
+    </administrators>
+    
+    <add_new_user>
+        <title>Add new user</title>
+        <title_admin>Add Administrator</title_admin>
+        <name>Name:</name>
+        <email>Email:</email>
+        <phone>Contact:</phone>
+        <password>Password:</password>
+        <cancel>Cancel</cancel>
+        <create>Create</create>
+        <sorry_but>Sorry but, </sorry_but>
+        <this_email>this email</this_email>
+        <this_phone>this phone</this_phone>
+        <already_exists>already exists</already_exists>
+        <please_try_later>please try later!</please_try_later>
+        <success>Success!</success>
+        <you_signed_up>New user created!</you_signed_up>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+        <colon>:</colon>
+        <new_admin_create>New Administrator Created!</new_admin_create>
+    </add_new_user>
+    
+    <my_users>
+        <showing_all_records>Showing all records</showing_all_records>
+        <search>Search</search>
+        <filter>Filter</filter>
+        <users>Users</users>
+        <add_user>Add User</add_user>
+        <entries>Entries</entries>
+        <search_colon>Search:</search_colon>
+        <name>Name</name>
+        <email>Email</email>
+        <contact>Contact</contact>
+        <registration_date>Registration Date</registration_date>
+        <status>Status</status>
+        <action>Actions</action>
+        <active>Active</active>
+        <inactive>Inactive (Can not login)</inactive>
+        <edit_profile>Edit Profile</edit_profile>
+        <block_unblock>Block/Unblock</block_unblock>
+        <no_data>No data available in table</no_data>
+        <you_signed_up>New user created!</you_signed_up>        
+        <invalid_id>Invalid ID:</invalid_id>
+        <no_account>No account found with that ID.</no_account>
+        <from>From</from>
+        <to>to</to>
+        <clear_filter>Clear Filter</clear_filter>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+        <search_colon>Search:</search_colon>
+        <updated_colon>Updated:</updated_colon>
+        <no_email>No Email</no_email>
+        <delete_user>Delete User</delete_user>
+        <confirm_del>Are you sure you want to delete this user?</confirm_del>
+    </my_users>
+    
+    <contacts>
+        <users_contacts>'s Contacts</users_contacts>
+        <last_synced>Last synced</last_synced>
+        <never_synced>Never Synced</never_synced>     
+        <entries>Entries</entries>
+        <search_colon>Search:</search_colon>
+        <display_name>Display Name</display_name>  
+        <phone_number>Phone Number</phone_number> 
+        <no_data>No data available in table</no_data>
+        <no_number>no number</no_number>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+    </contacts>
+    
+    <call_logs>
+        <users_call_log>'s Call Log</users_call_log>
+        <last_synced>Last synced</last_synced>
+        <never_synced>Never Synced</never_synced>     
+        <entries>Entries</entries>
+        <search_colon>Search:</search_colon>
+        <display_name>Display Name</display_name>  
+        <phone_number>Phone Number</phone_number> 
+        <type>Type</type>
+        <duration>Duration</duration>
+        <date>Date</date>
+        <missed>Missed</missed>
+        <dailed>Dialed</dailed>
+        <received>Received</received>
+        <no_data>No data available in table</no_data>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+    </call_logs>
+    
+    <text_messages>
+        <users_text_messages>'s Text Messages</users_text_messages>
+        <last_synced>Last synced</last_synced>
+        <never_synced>Never Synced</never_synced>     
+        <entries>Entries</entries>
+        <search_colon>Search:</search_colon>
+        <name>Name</name>
+        <number>Number</number>
+        <date>Date</date>
+        <status>Status</status>
+        <body>Body</body>
+        <application>Application</application>
+        <no_data>No data available in table</no_data>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+        <received>Received</received>
+        <sent>Sent</sent>
+        <draft>Draft</draft>
+        <outbox>Outbox</outbox>
+        <failed>Failed</failed>
+        <queued>Queued</queued>
+        <read>Read</read>
+        <not_read_yet>Not read yet</not_read_yet>
+        
+    </text_messages>
+    
+    <location>
+        <users_location>'s Location</users_location>
+        <last_synced>Last synced</last_synced>
+        <never_synced>Never Synced</never_synced>
+        <filter>Filter</filter>
+        <from>From</from>
+        <to>to</to>
+        <clear>Clear Filter</clear>
+        <showing_last_hours>Showing last 24 hours</showing_last_hours>
+        <never>never</never>
+        <of>of</of>
+        <locations>Locations</locations>
+        <no_locations>No Locations!</no_locations>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>   
+    </location>
+    
+    <browser_history>
+        <users_browser_history>'s Browser Hitory</users_browser_history>
+        <last_synced>Last synced</last_synced>
+        <never_synced>Never Synced</never_synced>     
+        <entries>Entries</entries>
+        <search_colon>Search:</search_colon>
+        <url>URL</url>
+        <date>Date</date>
+        <no_data>No data available in table</no_data>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+        
+    </browser_history>
+    
+    <installed_apps>
+        <users_installed_apps>'s Installed Apps</users_installed_apps>
+        <last_synced>Last synced</last_synced>
+        <never_synced>Never Synced</never_synced>     
+        <entries>Entries</entries>
+        <search_colon>Search:</search_colon>
+        <app_name>App Name</app_name>
+        <app_icon>App Icon</app_icon>
+        <app_id>App ID</app_id>
+        <app_package_name>App Package Name</app_package_name>
+        <action>Action</action>
+        <blocked>Blocked</blocked>
+        <unblocked>Unblocked</unblocked>
+        <no_data>No data available in table</no_data>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+    </installed_apps>
+    
+    <attendance>
+        <title>'s Attendence</title>
+        <showing_all_records>Showing all records</showing_all_records>
+        <search>Search</search>
+        <filter>Filter</filter>
+        <users>Users</users>
+        <entries>Entries</entries>
+        <search_colon>Search:</search_colon>
+        <employee>Employee</employee>
+        <action>Action</action>
+        <location>Location</location>
+        <date_time>Date Time</date_time>
+        <no_data>No data available in table</no_data>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+        <showing_all_records_small>showing all records</showing_all_records_small>
+        <clear_filter>Clear Filter</clear_filter>
+        <active>Active</active>
+        <inactive>Inactive (Can not login)</inactive>
+        <block_unblock>Block/Unblock</block_unblock>
+    </attendance>
+    
+    <block_websites>
+        <users_block_websites>'s Blocked Websites</users_block_websites>
+        <add_url>Add URL</add_url>
+        <last_synced>Last synced</last_synced>
+        <never_synced>Never Synced</never_synced>     
+        <entries>Entries</entries>
+        <search_colon>Search:</search_colon>
+        <url>URL</url>
+        <date_time>Date Time</date_time>
+        <action>Action</action>
+        <delete>Delete URL</delete>
+        <no_data>No data available in table</no_data>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+        <confirm>Are you sure you want you delete this URL ?</confirm>
+    </block_websites>
+    
+    
+    <add_block_url>
+        <title>Add Block URL</title>
+        <url>Url:</url>
+        <add>Add</add>
+        <cancel>Cancel</cancel> 
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>    
+    </add_block_url>
+    
+    
+    
+    <videos>
+        <users_videos>'s Videos</users_videos>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+        <add_video>Add Videos</add_video>
+        <title_colon>Title:</title_colon>
+        <add_video_colon>Add Videos:</add_video_colon>
+        <save>Save</save>
+        <close>Close</close>
+    </videos>
+    
+    <photos>
+        <users_photos>'s Photos</users_photos>
+        <add_photos>Add Photos</add_photos>
+        <edit>Edit Photos</edit>
+        <title_colon>Title:</title_colon>
+        <add_photos_colon>Add Photos:</add_photos_colon>
+        <save>Save</save>
+        <close>Close</close>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+      
+    </photos>
+    
+    <edit_photos>
+        <users_photos>'s Photos</users_photos>
+        <delete>Delete Photo</delete>
+        <edit>Edit Photo</edit>
+        <delete_all>Delete</delete_all>
+        <close>Close</close>
+        <confirm_delete>Are you sure you want you delete this Photo ?</confirm_delete>
+        <select_atleast>Select atleast One Photo!</select_atleast>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+    </edit_photos>
+    
+    <viber>
+        <users_viber>'s Viber</users_viber>
+        <last_synced>Last synced</last_synced>
+        <never_synced>Never Synced</never_synced>     
+        <entries>Entries</entries>
+        <search_colon>Search:</search_colon>
+        <number>Number</number>
+        <date>Date</date>
+        <status>Status</status>
+        <body>Body</body>
+        <application>Application</application>
+        <no_data>No data available in table</no_data>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+        <received_status>Received</received_status>
+        <dialed_status>Dialed</dialed_status>
+        <missed_status>Missed</missed_status>
+    </viber>
+    
+    <device_management>
+        <device_management>Device Management</device_management>
+        <device_information>Device Information</device_information>
+        <battery>Battery Charge:	</battery>
+        <version>Version:</version>
+        <last_update>Last Updated Time:</last_update>
+        <phone_name>Phone Name:</phone_name>
+        
+        <platform>Platform:</platform>
+        <uuid>UUID:</uuid>
+        <model>Model:</model>
+        <manufacturer>Manufacturer:</manufacturer>
+        <serial>Serial:</serial>
+        <save>Save</save>
+        <wifi_network>Wi-Fi and Cellular Network</wifi_network>
+        <wi_fi>Wi-Fi</wi_fi>
+        <mob_data>Cellular (Mobile Data)</mob_data>
+        <free_disk_space>Free Disk Space</free_disk_space>
+        <network_con>Network Connection:</network_con>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+        
+        <subscribed_untill>Subscribed Untill:</subscribed_untill>	
+        <internal_memory>Internal Memory</internal_memory>
+        <occupied>Occupied</occupied>
+        <free>Free</free>
+        <occupied_space>Occupied Space</occupied_space>	
+        <free_space>Free Space</free_space>
+        <available_network>Available internet connection</available_network>
+        <operator_name>Operator Name</operator_name>
+        <device_id>Device ID :</device_id>
+        <phone_model>Phone model :</phone_model>
+        <sd_mempry>SD Memory</sd_mempry>
+        <device_settings>Device Settings</device_settings>
+        <device_settings_help>All changes made on the web panel will be applied in N minutes</device_settings_help>
+        <update_interval>Update Interval</update_interval>
+        <location_update_interval>Location Update Interval</location_update_interval>
+        <call_logs>Call Logs</call_logs>
+        <browser_bookmarks>Browser Bookmarks</browser_bookmarks>
+        <installed_apps>Installed Apps</installed_apps> 	 	 
+        <sms>SMS</sms>
+        <address_book>Address Book</address_book> 
+        <photos>Photos</photos>
+        <video>Videos</video>
+        <viber>Viber</viber>   
+        <charging>charging</charging>
+        <not_charging>not charging</not_charging>
+        <data_type>Data type</data_type>
+        <sync_in>Sync In</sync_in>
+        <sync_time>Sec(s)</sync_time>
+        <sync_over>Sync Over</sync_over>
+        <wifi_net>Wi-Fi/Cellular Network</wifi_net>
+                	 
+    </device_management>
+    
+    <message_section_left>
+        <filter>Filter</filter>
+        <all>All</all>
+        <read>Read</read>
+        <unread>Unread</unread>
+        <select_action>Action</select_action>
+        <mark_as_read>Mark as read</mark_as_read>
+        <mark_as_unread>Mark as unread</mark_as_unread>
+        <clear_chat>Clear Chat</clear_chat>
+        <You_have>You have</You_have>
+        <unread_conversations>Unread Conversation(s)</unread_conversations>
+        <Search>Search..</Search>
+        <users_will_appear_here>users will appear here</users_will_appear_here>
+        <conversations>conversations(s)</conversations>
+        <Customer_not_found>Customer not found!</Customer_not_found>
+        <no_recent_conversation>no recent conversation</no_recent_conversation>
+        <no_messages>no messages</no_messages>
+        <no_users_found>No Users Found!</no_users_found>
+        <Response_Due>Response Due</Response_Due>
+        <hrs_24>24 hrs</hrs_24>
+        <hrs>hrs</hrs>
+        <days_7>7 days</days_7>
+        <days_14>14 days</days_14>
+        <days>days</days>
+        <select_all>Select All</select_all>
+        <deselect_all>Deselect All</deselect_all>
+        <message_section>Message Section</message_section>
+        <manage_tags>Manage Tags</manage_tags>
+        <cancel>Cancel</cancel>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+    </message_section_left>
+    <message_section_middle>
+        <please_select_a_customer>Please select a chat-head</please_select_a_customer>
+        <Customer_Since>Customer Since</Customer_Since>
+        <Contact>Contact</Contact>
+        <Address>Address</Address>
+        <Last_Conversation>Last Conversation</Last_Conversation>
+        <Total_Orders>Total Orders</Total_Orders>
+        <new>New</new>
+        <Orders>Orders</Orders>
+        <No_Orders>No Orders</No_Orders>
+        <Tags_Notes>Tags/Notes</Tags_Notes>
+        <Add_tags_and_notes_for>Add tags and notes for</Add_tags_and_notes_for>
+        <Add_Tag_Label>Add Tag/Label</Add_Tag_Label>
+        <Add_new>Add new?</Add_new>
+        <Enter_new_tag>Enter new tag</Enter_new_tag>
+        <Tags_updated>Tags updated!</Tags_updated>
+        <notes_collon>Notes:</notes_collon>
+        <enter_notes>Enter Note..</enter_notes>
+        <notes_updated>Notes: updated!</notes_updated>
+        <Delete>Delete</Delete>
+        <Done>Done</Done>
+        <Add_to_Cart>Add to Cart</Add_to_Cart>
+        <Type_message>Type message...</Type_message>
+        <send>send</send>
+        <upload>upload</upload>
+        <uploading>uploading</uploading>
+        <sending>sending</sending>
+        <sent>sent</sent>
+    </message_section_middle>
+    <message_section_right>
+        <SMS_App>SMS App</SMS_App>
+        <No_Mobile_Connected>No Mobile Connected</No_Mobile_Connected>
+        <New_Order>New Phone Order</New_Order>
+        <Products>Products</Products>
+        <Total>Total</Total>
+        <products>product(s)</products>
+        <Please_add_a_product>Please add a product</Please_add_a_product>
+        <Product_name>Product name</Product_name>
+        <total_ks>total (ks)</total_ks>
+        <discount>discount (%)</discount>
+        <net_Ks>net (Ks)</net_Ks>
+        <Back>Back</Back>
+        <save_draft>save draft</save_draft>
+        <save_and_share>save and share</save_and_share>
+        <Payment>Payment</Payment>
+        <Payment_Method>Payment Method</Payment_Method>
+        <Select_Bank>Select Bank</Select_Bank>
+        <add_new_bank>add new bank</add_new_bank>
+        <Transfer_Date>Transfer Date</Transfer_Date>
+        <Expiry>Expiry</Expiry>
+        <Shipping_Fee>Shipping Fee:</Shipping_Fee>
+        <Inside_The_City>Inside The City</Inside_The_City>
+        <Outside_The_City>Outside The City</Outside_The_City>
+        <Rural>Rural</Rural>
+        <Custom_Shipping_Fee>Custom Shipping Fee</Custom_Shipping_Fee>
+        <or_add_custtom_shipping_fee>Custom Shipping Fee (optional):</or_add_custtom_shipping_fee>
+        <shipping>shipping</shipping>
+        <Select_Customer_Type>Select Customer Type:</Select_Customer_Type>
+        <Select_an_existing_customer>Select an existing customer</Select_an_existing_customer>
+        <Create_new_customer>Create new customer</Create_new_customer>
+        <Recipients_Name>Recipient's Name:</Recipients_Name>
+        <Customers_Name>Customer's Name:</Customers_Name>
+        <Primary_Number>Customer's Number:</Primary_Number>
+        <Secondary_Number>Recipient's Number:</Secondary_Number>
+        <Address>Address:</Address>
+        <Regions>Regions</Regions>
+        <District>District</District>
+        <Township>Township</Township>
+        <Done>Done</Done>
+    </message_section_right>
+    
+    <remote_device_lock>
+        <users_device>'s Device</users_device>
+        <device_name>Taylor's Gibs iPad</device_name>
+        <location>Location</location>
+        <play_sound_or_send_message>Play Sound Or Send Message</play_sound_or_send_message>
+        <remote_lock>Remote Lock</remote_lock>
+        <remote_wipe>Remote Wipe</remote_wipe>
+        <access_denied>Access Denied:</access_denied>
+        <no_access>You have no access to view this content</no_access>
+        <time_stamp>1</time_stamp>
+        <time_count>min ago</time_count>
+    </remote_device_lock>    
+</root> 

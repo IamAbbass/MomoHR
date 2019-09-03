@@ -1,0 +1,31 @@
+.range_inputs{
+    display:none !important;
+}
+/*
+.select2-selection--single{
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    display: inline !important;
+    float: left !important;
+}
+.select2-container--bootstrap .select2-selection--single .select2-selection__arrow{
+    top: -15px !important;
+}
+.select2-container--bootstrap .select2-selection--single .select2-selection__rendered{
+    color: #fff !important;
+    font-size: 18px;
+    top: -3px;
+    position: relative;
+}
+.select2-container--bootstrap:hover .select2-selection--single:hover .select2-selection__rendered:hover{
+    font-weight: bold;
+}
+.select2-container--bootstrap .select2-selection--single .select2-selection__arrow b{
+    border-color: transparent transparent transparent transparent !important;
+}
+*/
+.caption{
+    width:100% !important;
+    padding:10px 0 0 0 !important;
+}

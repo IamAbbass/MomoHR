@@ -1,0 +1,141 @@
+[02-Feb-2019 00:51:56 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/connection.php:33
+Stack trace:
+#0 /home1/zeddevel/public_html/@beta/app/Hamza-Testing/connection.php(37): FunctionName()
+#1 {main}
+  thrown in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/connection.php on line 33
+[02-Feb-2019 00:55:16 America/Chicago] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/add_updates.php on line 55
+[02-Feb-2019 01:08:49 America/Chicago] PHP Warning:  move_uploaded_file(files/886ceff5335000ebeaaa5baf6d7d0945.zip): failed to open stream: No such file or directory in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/add_updates.php on line 22
+[02-Feb-2019 01:08:49 America/Chicago] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/php49kgtB' to 'files/886ceff5335000ebeaaa5baf6d7d0945.zip' in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/add_updates.php on line 22
+[02-Feb-2019 01:20:38 America/Chicago] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, object given in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/connection.php on line 31
+[02-Feb-2019 01:20:38 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/connection.php on line 32
+[02-Feb-2019 01:20:43 America/Chicago] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, object given in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/connection.php on line 31
+[02-Feb-2019 01:20:43 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/connection.php on line 32
+[02-Feb-2019 01:20:51 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/connection.php on line 32
+[02-Feb-2019 02:35:08 America/Chicago] PHP Warning:  move_uploaded_file(zeddevelopers.com/@beta/app/Hamza-Testing/files/11fdcab37725a49e526af3a34794844c.zip): failed to open stream: No such file or directory in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/add_updates.php on line 34
+[02-Feb-2019 02:35:08 America/Chicago] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpibqCfx' to 'zeddevelopers.com/@beta/app/Hamza-Testing/files/11fdcab37725a49e526af3a34794844c.zip' in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/add_updates.php on line 34
+[04-Feb-2019 07:03:35 America/Chicago] PHP Warning:  openssl_private_decrypt(): key parameter is not a valid private key in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/test_temp.php on line 19
+[04-Feb-2019 07:11:26 America/Chicago] PHP Warning:  openssl_public_encrypt(): key parameter is not a valid public key in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/test_temp.php on line 13
+[04-Feb-2019 07:11:26 America/Chicago] PHP Warning:  openssl_private_decrypt(): key parameter is not a valid private key in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/test_temp.php on line 19
+[05-Feb-2019 09:13:54 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/add_updates.php:53
+Stack trace:
+#0 /home1/zeddevel/public_html/@beta/app/Hamza-Testing/add_updates.php(102): get_version_name()
+#1 {main}
+  thrown in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/add_updates.php on line 53
+[05-Feb-2019 09:14:12 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/add_updates.php:53
+Stack trace:
+#0 /home1/zeddevel/public_html/@beta/app/Hamza-Testing/add_updates.php(102): get_version_name()
+#1 {main}
+  thrown in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/add_updates.php on line 53
+[05-Feb-2019 09:14:24 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/add_updates.php:53
+Stack trace:
+#0 /home1/zeddevel/public_html/@beta/app/Hamza-Testing/add_updates.php(102): get_version_name()
+#1 {main}
+  thrown in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/add_updates.php on line 53
+[05-Feb-2019 09:14:26 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/add_updates.php:53
+Stack trace:
+#0 /home1/zeddevel/public_html/@beta/app/Hamza-Testing/add_updates.php(102): get_version_name()
+#1 {main}
+  thrown in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/add_updates.php on line 53
+[06-Feb-2019 01:27:47 America/Chicago] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/add_updates.php on line 4
+[06-Feb-2019 01:27:48 America/Chicago] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home1/zeddevel/public_html/@beta/app/Hamza-Testing/add_updates.php on line 4
+[11-Feb-2019 12:44:20 Asia/Karachi] PHP Fatal error:  Call to a member function query() on null in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 62
+[11-Feb-2019 12:50:19 Asia/Karachi] PHP Fatal error:  Call to a member function query() on null in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 62
+[11-Feb-2019 12:52:56 Asia/Karachi] PHP Fatal error:  Call to a member function sql() on null in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 63
+[11-Feb-2019 12:53:27 Asia/Karachi] PHP Fatal error:  Call to undefined method PDO::sql() in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 63
+[11-Feb-2019 12:54:05 Asia/Karachi] PHP Fatal error:  Call to undefined method PDO::sql() in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 63
+[11-Feb-2019 12:54:11 Asia/Karachi] PHP Fatal error:  Call to undefined method PDO::sql() in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 63
+[11-Feb-2019 00:56:35 America/Denver] PHP Parse error:  syntax error, unexpected '$result' (T_VARIABLE) in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 83
+[11-Feb-2019 00:56:55 America/Denver] PHP Parse error:  syntax error, unexpected ',' in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 83
+[11-Feb-2019 13:00:20 Asia/Karachi] PHP Warning:  move_uploaded_file(/home1/mmrsonli/public_html/momohr/app_services/clientclient/files/1a99fda8b4d952a4713ec199ec30d817.zip): failed to open stream: No such file or directory in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 46
+[11-Feb-2019 13:00:20 Asia/Karachi] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpK5OkG4' to '/home1/mmrsonli/public_html/momohr/app_services/clientclient/files/1a99fda8b4d952a4713ec199ec30d817.zip' in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 46
+[11-Feb-2019 13:01:23 Asia/Karachi] PHP Warning:  move_uploaded_file(/home1/mmrsonli/public_html/momohr/app_services/clientclient/files/3236a849fee009affa7b146868227075.zip): failed to open stream: No such file or directory in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 46
+[11-Feb-2019 13:01:23 Asia/Karachi] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpahWxSS' to '/home1/mmrsonli/public_html/momohr/app_services/clientclient/files/3236a849fee009affa7b146868227075.zip' in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 46
+[11-Feb-2019 13:02:37 Asia/Karachi] PHP Notice:  Undefined variable: res in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 47
+[11-Feb-2019 13:03:12 Asia/Karachi] PHP Notice:  Undefined variable: res in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 47
+[11-Feb-2019 13:06:00 Asia/Karachi] PHP Notice:  Undefined variable: res in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 47
+[11-Feb-2019 13:06:13 Asia/Karachi] PHP Notice:  Undefined variable: res in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 47
+[11-Feb-2019 13:06:21 Asia/Karachi] PHP Notice:  Undefined variable: res in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 47
+[11-Feb-2019 13:06:35 Asia/Karachi] PHP Notice:  Undefined variable: res in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 47
+[11-Feb-2019 13:06:45 Asia/Karachi] PHP Notice:  Undefined variable: res in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 47
+[11-Feb-2019 13:07:00 Asia/Karachi] PHP Notice:  Undefined variable: res in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 47
+[11-Feb-2019 13:26:12 Asia/Karachi] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mmrsonli_momohr.tbl_versions' doesn't exist' in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php:40
+Stack trace:
+#0 /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php(40): PDOStatement->execute(Array)
+#1 /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php(66): get_updates()
+#2 {main}
+  thrown in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 40
+[11-Feb-2019 13:26:51 Asia/Karachi] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mmrsonli_momohr.tbl_versions' doesn't exist' in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php:40
+Stack trace:
+#0 /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php(40): PDOStatement->execute(Array)
+#1 /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php(66): get_updates()
+#2 {main}
+  thrown in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 40
+[11-Feb-2019 13:28:00 Asia/Karachi] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mmrsonli_momohr.tbl_versions' doesn't exist' in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php:40
+Stack trace:
+#0 /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php(40): PDOStatement->execute(Array)
+#1 /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php(66): get_updates()
+#2 {main}
+  thrown in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 40
+[11-Feb-2019 13:28:45 Asia/Karachi] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mmrsonli_momohr.tbl_versions' doesn't exist' in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php:37
+Stack trace:
+#0 /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php(37): PDOStatement->execute(Array)
+#1 /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php(63): get_updates()
+#2 {main}
+  thrown in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 37
+[11-Feb-2019 13:28:48 Asia/Karachi] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mmrsonli_momohr.tbl_versions' doesn't exist' in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php:37
+Stack trace:
+#0 /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php(37): PDOStatement->execute(Array)
+#1 /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php(63): get_updates()
+#2 {main}
+  thrown in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 37
+[11-Feb-2019 13:30:34 Asia/Karachi] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mmrsonli_momohr.tbl_versions' doesn't exist' in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php:37
+Stack trace:
+#0 /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php(37): PDOStatement->execute(Array)
+#1 /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php(60): get_updates()
+#2 {main}
+  thrown in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 37
+[11-Feb-2019 13:30:45 Asia/Karachi] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mmrsonli_momohr.tbl_versions' doesn't exist' in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php:37
+Stack trace:
+#0 /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php(37): PDOStatement->execute(Array)
+#1 /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php(60): get_updates()
+#2 {main}
+  thrown in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 37
+[11-Feb-2019 13:31:18 Asia/Karachi] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mmrsonli_momohr.tbl_versions' doesn't exist' in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php:37
+Stack trace:
+#0 /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php(37): PDOStatement->execute()
+#1 /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php(60): get_updates()
+#2 {main}
+  thrown in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 37
+[11-Feb-2019 13:32:26 Asia/Karachi] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mmrsonli_momohr.tbl_versions' doesn't exist' in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php:37
+Stack trace:
+#0 /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php(37): PDOStatement->execute()
+#1 /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php(61): get_updates()
+#2 {main}
+  thrown in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 37
+[27-Mar-2019 13:26:05 Asia/Karachi] PHP Fatal error:  Call to undefined function get_updates() in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 50
+[27-Mar-2019 13:27:06 Asia/Karachi] PHP Fatal error:  Call to undefined function get_updates() in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 50
+[27-Mar-2019 13:27:51 Asia/Karachi] PHP Fatal error:  Call to undefined function get_updates() in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 50
+[27-Mar-2019 13:29:25 Asia/Karachi] PHP Fatal error:  Call to undefined function get_updates() in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 49
+[27-Mar-2019 13:42:11 Asia/Karachi] PHP Fatal error:  Call to undefined function get_updates() in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 53
+[27-Mar-2019 13:43:12 Asia/Karachi] PHP Fatal error:  Call to undefined function get_updates() in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 53
+[27-Mar-2019 13:44:20 Asia/Karachi] PHP Fatal error:  Call to undefined function get_updates() in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 53
+[27-Mar-2019 13:45:07 Asia/Karachi] PHP Fatal error:  Call to undefined function get_updates() in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 54
+[27-Mar-2019 15:37:44 Asia/Karachi] PHP Fatal error:  Call to undefined function get_updates() in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 57
+[27-Mar-2019 15:40:50 Asia/Karachi] PHP Fatal error:  Call to undefined function get_updates() in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 57
+[27-Mar-2019 15:41:09 Asia/Karachi] PHP Fatal error:  Call to undefined function get_updates() in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 57
+[27-Mar-2019 15:42:39 Asia/Karachi] PHP Fatal error:  Call to undefined function get_updates() in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 57
+[27-Mar-2019 15:44:45 Asia/Karachi] PHP Fatal error:  Call to undefined function get_updates() in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 57
+[27-Mar-2019 15:45:28 Asia/Karachi] PHP Fatal error:  Call to undefined function get_updates() in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 57
+[27-Mar-2019 15:46:42 Asia/Karachi] PHP Fatal error:  Call to undefined function get_updates() in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 57
+[27-Mar-2019 15:47:39 Asia/Karachi] PHP Fatal error:  Call to undefined function get_updates() in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 57
+[27-Mar-2019 15:50:01 Asia/Karachi] PHP Fatal error:  Call to undefined function get_updates() in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 57
+[27-Mar-2019 15:50:24 Asia/Karachi] PHP Fatal error:  Call to undefined function get_updates() in /home1/mmrsonli/public_html/momohr/app_services/client/ajax_check_updates.php on line 57
+[28-Mar-2019 13:03:00 Asia/Karachi] PHP Warning:  fopen(/myFile.txt): failed to open stream: Permission denied in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 21
+[28-Mar-2019 13:03:00 Asia/Karachi] PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 22
+[28-Mar-2019 13:03:00 Asia/Karachi] PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 23
+[28-Mar-2019 13:04:33 Asia/Karachi] PHP Warning:  fopen(/myFile.txt): failed to open stream: Permission denied in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 21
+[28-Mar-2019 13:04:33 Asia/Karachi] PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 22
+[28-Mar-2019 13:04:33 Asia/Karachi] PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 23
+[28-Mar-2019 13:04:42 Asia/Karachi] PHP Warning:  fopen(/myFile.txt): failed to open stream: Permission denied in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 21
+[28-Mar-2019 13:04:42 Asia/Karachi] PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 22
+[28-Mar-2019 13:04:42 Asia/Karachi] PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in /home1/mmrsonli/public_html/momohr/app_services/client/add_updates.php on line 23
