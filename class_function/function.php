@@ -69,7 +69,7 @@
     $resize_100         = "?x-oss-process=image/resize,m_lfit,h_700,w_700";
     $resize_thumb       = "?x-oss-process=image/resize,m_lfit,h_150,w_150";
     $resize_w300        = "?x-oss-process=image/resize,m_lfit,w_300";
-    
+
     $video_thumb_100    = "?x-oss-process=video/snapshot,t_250,f_jpg,w_600,h_600,m_fast";
     $image_ext          = array("jpg","jpeg","tiff","gif","bmp","png");
     $video_ext          = array("3gp","mp4","avi","wmv");
@@ -150,7 +150,7 @@
 
     //WEBSITE URL
 
-	$website_url        	= "https://momohr.co/";
+	$website_url        	= "http://localhost/zed/MomoHR/";
 	//$website_url = "http://localhost/zed/momohr-13-01-2019/";
 
 	$website_email      	= "";

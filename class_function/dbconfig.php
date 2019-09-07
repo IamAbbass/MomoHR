@@ -1,6 +1,6 @@
 <?php
 	header("Access-Control-Allow-Origin: *");
-	$host = 'localhost'; $dbname = 'mmrsonli_momohr'; $user = 'mmrsonli_momohr'; $pass = 'mmrsonli_momohr';
+	$host = 'localhost'; $dbname = 'momohr'; $user = 'root'; $pass = '';
 	# connect to the database
 	try {
 	  $DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);

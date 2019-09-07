@@ -1408,91 +1408,85 @@
 
 
 
-
-
-
-
-
-                                        <!-- yahan -->
                                         <div class="tab-pane fade" id="tab_screenshots">
                                         <div class="row">
-                                        <div class="col-md-12">
-                                        <h2 class="page-title no_margin"> <i class="fa fa-picture-o"></i> Screenshots</h2>
-                                        </div>
-                                        <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-                                            	<br />
-                                                <form action="exe_emp_settings.php?type=tab_screenshots" method="POST">
-                                                <input type="hidden" name="employee_id" value="<?= $employee_login['id'] ?>" />
+                                            <div class="col-md-12">
+                                              <h2 class="page-title no_margin"> <i class="fa fa-picture-o"></i> Screenshots</h2>
+                                            </div>
+                                            <div class="col-md-6">
 
+                                              <br/><br/>
+
+                                              <form action="exe_emp_settings.php?type=tab_screenshots" method="POST">
+                                                <input type="hidden" name="employee_id" value="<?= $employee_login['id'] ?>" />
+                                                <input type="hidden" value="<?= $employee_login['id'] ?>" name="employee_id" />
                                                 <?php
                                                 $rows = sql($DBH,"select * from tbl_screenshot_settings where employee_id = ?",
                                                 array($employee_id),"rows");
                                                 foreach($rows as $row){
-                                                $ss_enable      = $row['ss_enable'];
-                                                $ss_interval    = $row['ss_interval'];                                                      }
-
+                                                  $ss_enable      = $row['ss_enable'];
+                                                  $ss_interval    = $row['ss_interval'];
+                                                }
                                                 ?>
-
-
-                                                <h4>Screenshot Settings:</h4>
-                                                <div class="row">
-                                                <input type="hidden" value="<?= $employee_login['id'] ?>" name="employee_id" />
                                                 <div class="col-md-4">
-                                                <label>Enable Screenshot:</label>
-                                                <div class="md-checkbox">
-                                                <input name="ss_enable" value="true" <?php if($ss_enable == "true") echo "checked"; ?> type="checkbox" id="checkbox_1" class="md-check access_check" />
-                                                <label for="checkbox_1">
-                                                <span></span>
-                                                <span class="check"></span>
-                                                <span class="box"></span> Yes </label>
-                                                </div>
+                                                  <label>Screenshots:</label>
+                                                  <div class="md-checkbox">
+                                                  <input name="ss_enable" value="true" <?php if($ss_enable == "true") echo "checked"; ?> type="checkbox" id="checkbox_1" class="md-check access_check" />
+                                                  <label for="checkbox_1">
+                                                  <span></span>
+                                                  <span class="check"></span>
+                                                  <span class="box"></span> Enable </label>
+                                                  </div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                <label>Screenshot Interval:</label>
-                                                <select name="ss_interval" class="form-control">
-                                                <option <?php if($ss_interval == "6"){echo "selected";} ?> value="6">6 Minutes</option>
-                                                <option <?php if($ss_interval == "12"){echo "selected";} ?> value="12">12 Minutes</option>
-                                                <option <?php if($ss_interval == "18"){echo "selected";} ?> value="18">18 Minutes</option>
-                                                <option <?php if($ss_interval == "24"){echo "selected";} ?> value="24">24 Minutes</option>
-                                                <option <?php if($ss_interval == "30"){echo "selected";} ?> value="30">30 Minutes</option>
-                                                </select>
+                                                  <label>Every:</label>
+                                                  <select name="ss_interval" class="form-control">
+                                                    <option <?php if($ss_interval == "6"){echo "selected";} ?> value="6">6 Mins</option>
+                                                    <option <?php if($ss_interval == "12"){echo "selected";} ?> value="12">12 Mins</option>
+                                                    <option <?php if($ss_interval == "18"){echo "selected";} ?> value="18">18 Mins</option>
+                                                    <option <?php if($ss_interval == "24"){echo "selected";} ?> value="24">24 Mins</option>
+                                                    <option <?php if($ss_interval == "30"){echo "selected";} ?> value="30">30 Mins</option>
+                                                  </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                  <label>&nbsp;</label><br />
+                                                  <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Save</button>
+                                                </div>
+                                              </form>
+                                            </div>
+                                            <div class="col-md-6">
+                                              <br/><br/>
+
+                                              <form action="" class="form-horizontal filter_form4" method="GET">
+                                                <input type="hidden" name="page4" value="tab_screenshots" />
+                                                <input type="hidden" name="id4" value="<?php echo $_GET['id'] ?>" />
+
+                                                <div class="col-md-8">
+                                                  <label>Filter:</label><br />
+                                                  <div class="input-group date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                                                  <input type="text" class="form-control" value="<?php echo $date_from; ?>" name="date_from4" readonly="" />
+                                                  <span class="input-group-addon"> to </span>
+                                                  <input type="text" class="form-control" value="<?php echo $date_to; ?>" name="date_to4" readonly="" />
+                                                  </div>
                                                 </div>
 
                                                 <div class="col-md-4">
-                                                <label>&nbsp;</label><br />
-                                                <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Save Settings</button>
-
+                                                  <label>&nbsp;</label><br />
+                                                  <button type="submit" class="btn yellow"><i class="fa fa-filter"></i> <?php echo $filter_xml; ?></button>
                                                 </div>
-                                                </div>
-                                                </form>
 
+                                              </form>
 
-                						    </div>
+                						                </div>
+
+                                            <div class="col-md-12">
+                                              <br/><br/>
+                                            </div>
+
                                         </div>
 
-                                        <hr />
 
-                                        <form action="" class="form-horizontal filter_form4" method="GET">
-                                            <input type="hidden" name="page4" value="tab_screenshots" />
-                                            <input type="hidden" name="id4" value="<?php echo $_GET['id'] ?>" />
-
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="input-group input-large date-picker input-daterange" data-date-format="yyyy-mm-dd">
-                                                    <input type="text" class="form-control" value="<?php echo $date_from; ?>" name="date_from4" readonly="" />
-                                                    <span class="input-group-addon"> to </span>
-                                                    <input type="text" class="form-control" value="<?php echo $date_to; ?>" name="date_to4" readonly="" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <button type="submit" class="btn yellow"><i class="fa fa-filter"></i> <?php echo $filter_xml; ?></button>
-                                                </div>
-                                            </div>
-                                        </form>
-
-                                        <hr />
-                                        <h4>Screenshots:</h4>
-                                        <div class="">
+                                        <div class="col-md-12">
 
                                         <?php
                                         $from_ts    = strtotime($date_from);
