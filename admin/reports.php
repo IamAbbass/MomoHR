@@ -16,8 +16,8 @@
     use OSS\OssClient;
     use OSS\Core\OssException;
     //alibaba end
-    
-    $tbl_attendance = array();    
+
+    $tbl_attendance = array();
     $rows = sql($DBH, "SELECT * FROM tbl_attendance where company_id = ? order by (date_time) asc",
     array($SESS_COMPANY_ID), "rows");
     $i = 0;
@@ -26,22 +26,22 @@
         $date_time      = date("D, d-M",$row['date_time']);
         $attachment     = $row['attachment'];
         //get_employee_name(2);
-        
+
         $tbl_attendance[$date_time][$e_id]['attachment'] = $attachment;
         $tbl_attendance[$date_time][$e_id]['time'] = date("h:i:s A",$row['date_time']);
-         
+
         /*
         <td>".get_employee_name($e_id)."</td>
         <td><a class='attachment' href='javascript:;' data-toggle='popover' title='' data-img='".$attachment."' data-original-title=''><img class='thumbnail_img' src='".$attachment."'></a></td>
         <td>".date("d-M-Y",$row['date_time'])."</td>
         <td>".date("h:i:s A",$row['date_time'])."</td>
-        </tr>" ;*/                                            
-        
+        </tr>" ;*/
+
     }
 
 
     //die(json_encode($tbl_attendance));
-    
+
 
     $users_contacts_xml          = $xml->contacts->users_contacts;
     $last_synced_xml             = $xml->contacts->last_synced;
@@ -382,16 +382,13 @@
             .mt-widget-1{
                 border:none;
             }
-			.user-dp{
-				width:50px;
-				border-radius:100% !important;
-				padding:3px;
-				background:#eee;
-				border:1px solid #ccc;
-			}
-			.reportrange span{
-				display:none;
-			}
+      			.user-dp{
+      				width:50px;
+      				border-radius:100% !important;
+      				padding:3px;
+      				background:#eee;
+      				border:1px solid #ccc;
+      			}
             .no_padding{
                 padding: 0 !important;
             }
@@ -399,17 +396,17 @@
               margin-top:0 !important;
             }
             .keyboard_movement, .mouse_movement{
-                height:10px !important;               
+                height:10px !important;
             }
             .keyboard_movement .progress-bar{
-                background:#0f0;               
+                background:#0f0;
             }
             .mouse_movement .progress-bar{
-                background:#0f0;               
+                background:#0f0;
             }
-            
+
             .keyboard_movement i, .mouse_movement i{
-                color:#000;               
+                color:#000;
             }
         </style>
         <style>
@@ -437,8 +434,7 @@
                 border: 2px solid #666;
                 border-radius: 5px !important;
                 text-align: center;
-                padding: 8px;
-                height: 120px;
+                padding: 3px;
             }
             .thumb-image{
                float:left;
@@ -1189,141 +1185,147 @@
                                                       </div>
                                                   </div>
                                                   <br />
-                                                  
+
                                                   <div class="row">
                                                     <form action="reports.php#tab_screenshots" class="form_screenshot_filter form-horizontal" method="GET">
-                        										
-                                                    <div class="col-md-3">
-                                                        <div class="">
-                                                        <select name="u_id" class="form-control select2">                                                        
-                                                            <option <?php if($_GET['u_id'] != "all"){ echo "selected";} ?> value='all'>All Screenshots</option>
-                                                            <?php
-                                                                $rows = sql($DBH,"SELECT * FROM tbl_login where company_id = ? order by (date_time) desc",
-                                                                array($SESS_COMPANY_ID),"rows");
-                                                                foreach($rows as $row){
-                                                                    $id         = $row['id'];
-                                                                    $full_name  = $row['fullname'];
-                                                                    if($_GET['u_id'] == $id){
-                                                                        echo "<option selected value='$id'>$full_name</option>";
-                                                                    }else{
-                                                                        echo "<option value='$id'>$full_name</option>";
-                                                                    }
-                                                                    
-                                                                }                                                                  
-                                                            ?>                                                            
-                                                        </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-9">
-                                                        <div class=""> <!-- portlet box green -->
-                        									<div class=""> <!-- portlet-body form -->
-                        										<!-- BEGIN FORM-->
-                        											<div class="form-body">
-                        												<input type="hidden" name="date_from" value="<?php echo $_GET['date_from']; ?>" />
-                        												<input type="hidden" name="date_to" value="<?php echo $_GET['date_to']; ?>" />
-                        												<div class="">
-                        													<div class="col-md-3">
-                        														<div class="reportrange btn default">
-                        															<i class="fa fa-calendar"></i> &nbsp;
-                        															<span> </span>
-                        															<b class="fa fa-angle-down"></b>
-                        														</div>
-                        													</div>
-                        													<div class="col-md-6 pull-right">
-                        														<button type="submit" class="screenshot_filter btn green"><i class="fa fa-filter"></i> <?php echo $filter_xml; ?></button>
-                        													</div>
-                        												</div>
-                        											</div>
-                        										
-                        										<!-- END FORM-->
-                        									</div>
-                        								</div>
-                        							</div>
-                                                    <div class="col-md-12"><br /></div>
+                                                      <div style="padding-right:0;" class="col-md-2">
+                                                          <?php
+                                                            $rows = sql($DBH,"SELECT * FROM tbl_login where company_id = ? order by (date_time) desc",
+                                                            array($SESS_COMPANY_ID),"rows");
+                                                          ?>
+                                                          <label>Screenshots:</label>
+                                                          <select id="screenshot_user" name="u_id" class="form-control select2">
+                                                              <option <?php if($_GET['u_id'] != "all"){ echo "selected";} ?> value='all'>All Users (<?php echo count($rows); ?>) </option>
+                                                              <?php
+
+                                                                  foreach($rows as $row){
+                                                                      $id         = $row['id'];
+                                                                      $full_name  = $row['fullname'];
+                                                                      if($_GET['u_id'] == $id){
+                                                                          echo "<option selected value='$id'>$full_name</option>";
+                                                                      }else{
+                                                                          echo "<option value='$id'>$full_name</option>";
+                                                                      }
+
+                                                                  }
+                                                              ?>
+                                                          </select>
+                                                      </div>
+
+
+                                                      <div class="col-md-8" style="padding-left:0;" >
+                                                          <label>&nbsp;</label><br/>
+                                                          <div class="form-body">
+                                    												<input type="hidden" name="date_from" value="<?php echo $_GET['date_from']; ?>" />
+                                    												<input type="hidden" name="date_to" value="<?php echo $_GET['date_to']; ?>" />
+                                    												<div class="">
+                                    													<div class="col-md-12">
+                                    														<div class="reportrange btn default">
+                                    															<i class="fa fa-calendar"></i> &nbsp;
+                                    															<span> </span>
+                                    															<b class="fa fa-angle-down"></b>
+                                    														</div>
+                                    													</div>
+                                    												</div>
+                                    											</div>
+                                    							    </div>
+
+                                                      <div class="col-md-2">
+                                                        <label>&nbsp;</label><br/>
+                                                        <button type="submit" class="screenshot_filter btn green"><i class="fa fa-filter"></i> Apply <?php echo $filter_xml; ?></button>
+                                                      </div>
+                                                      <div class="col-md-12">
+                                                        <br />
+                                                      </div>
                                                     </form>
                                                   </div>
 
                                                     <div class="row">
                                                         <div style="float: right; width: 100% !important;" class="col-md-12">
                                                           <?php
-                                                          
+
                                                             $date_from 	= $_GET['date_from'];
-                                    						$date_to 	= $_GET['date_to'];
-                                    						if(strlen($date_from) > 0 && strlen($date_to) > 0){
-                                    							$show_date_from 	= strtotime($_GET['date_from'])-86400;
-                                    							$show_date_to 		= strtotime($_GET['date_to']);
-                                    						}else{
-                                    						    $show_date_from 	= time()-86400;
-                                    							$show_date_to 		= time();
-                                    						}
-                                
+                                                						$date_to 	= $_GET['date_to'];
+                                                						if(strlen($date_from) > 0 && strlen($date_to) > 0){
+                                                							$show_date_from 	= strtotime($_GET['date_from'])-86400;
+                                                							$show_date_to 		= strtotime($_GET['date_to']);
+                                                						}else{
+                                                						    $show_date_from 	= time()-86400;
+                                                							$show_date_to 		= time();
+                                                						}
+
                                                          if($_GET['u_id'] != "all" && $_GET['u_id'] != ""){//use selected
-                                                             $rows = sql($DBH,"SELECT * FROM tbl_screenshot where company_id = ? and date_time > ? and date_time < ? and employee_id = ? order by (date_time) asc",
+                                                             $tbl_screenshot = sql($DBH,"SELECT * FROM tbl_screenshot where company_id = ? and date_time > ? and date_time < ? and employee_id = ? order by (date_time) asc",
                                                             array($SESS_COMPANY_ID,$show_date_from,$show_date_to,$_GET['u_id']),"rows");
                                                          }else if($_GET['u_id'] == "all"){//all selected
-                                                             $rows = sql($DBH,"SELECT * FROM tbl_screenshot where company_id = ? and date_time > ? and date_time < ? order by (date_time) asc",
-                                                             array($SESS_COMPANY_ID,$show_date_from,$show_date_to),"rows");                                                             
+                                                             $tbl_screenshot = sql($DBH,"SELECT * FROM tbl_screenshot where company_id = ? and date_time > ? and date_time < ? order by (date_time) asc",
+                                                             array($SESS_COMPANY_ID,$show_date_from,$show_date_to),"rows");
                                                          }else{
-                                                            $rows = sql($DBH,"SELECT * FROM tbl_screenshot where company_id = ? and date_time > ? and date_time < ? order by (date_time) asc",
-                                                            array($SESS_COMPANY_ID,$show_date_from,$show_date_to),"rows");   
+                                                            $tbl_screenshot = sql($DBH,"SELECT * FROM tbl_screenshot where company_id = ? and date_time > ? and date_time < ? order by (date_time) asc",
+                                                            array($SESS_COMPANY_ID,$show_date_from,$show_date_to),"rows");
                                                          }
-                                                         
-                                                         
 
-                                                          if(count($rows) > 0){
-                                                            
-                                                              $SEPERATE_hours_old = null;
-                                                            
-                                                              foreach($rows as $row){ 
-                                                                $SEPERATE_hours = date("d-M-Y h A",$row['date_time']);
-                                                                $hrs_seperator_start = false;
-                                                                
-                                                                
-                                                                if($SEPERATE_hours != $SEPERATE_hours_old){
-                                                                    if($hrs_seperator_start == true){
-                                                                        echo "<div class='clearfix'></div>";
-                                                                        echo "</div>";
-                                                                        $hrs_seperator_start = false;
-                                                                    }
-                                                                    
-                                                                    echo "<h4 class='col-md-12 seperator_title'>$SEPERATE_hours<hr style='margin: 5px 0 10px 0;' /></h4>";
-                                                                    //echo "<h4 class='col-md-12 seperator_title_br'><hr /></h4>";
-                                                                    $hrs_seperator_start = true;
-                                                                } 
-                                                                
-                                                                ?>
-                                                                  <div class="col-md-3 hvr">
-                                                                      <img class="screenshot" src="<?php echo $row['image']; ?>" alt="" />
 
-                                                                      <p class="my-placeholder pull-left"><strong><?php echo get_employee_name($row['employee_id']); ?></strong></p>
-                                                                      <p class="my-placeholder pull-right text-muted"><i class="fa fa-clock-o"></i> <?php echo date("H:i a",$row['date_time']); ?></p>
-                                                                      
-                                                                      <div class="row">
-                                                                        <div class="col-md-6 text-center text-muted" style="padding-right: 0;">       
-                                                                            <small><i class="fa fa-mouse-pointer"></i> Mouse</small>                                                               
-                                                                            <div class="progress keyboard_movement">                                                                                
-                                                                                <div class="progress-bar" role="progressbar" aria-valuenow="25" style="width: 25%"  aria-valuemin="0" aria-valuemax="100"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6 text-center text-muted" style="padding-left: 0;">
-                                                                            <small><i class="fa fa-keyboard-o"></i> Keyboard</small>
-                                                                            <div class="progress mouse_movement">
-                                                                              <div class="progress-bar" role="progressbar" aria-valuenow="50" style="width: 50%"  aria-valuemin="0" aria-valuemax="100"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                      </div>
-                                                                  </div>
-                                                              <?php 
-                                                              
-                                                              
-                                                              $SEPERATE_hours_old = $SEPERATE_hours;
-                                                              
-                                                              }
-                                                              
-                                                              if($hrs_seperator_start == true){
-                                                                echo "<div class='clearfix'></div>";
-                                                                $hrs_seperator_start = false;
-                                                            }
+
+                                                         if(count($tbl_screenshot) > 0){
+
+                                                             $hrs_seperator_start = false;
+
+                                                             foreach($tbl_screenshot as $row){
+                                                                 $SEPERATE_hours = date("d-M-Y h A",$row['date_time']);
+
+                                                                 if($SEPERATE_hours != $SEPERATE_hours_old){
+                                                                     if($hrs_seperator_start == true){
+                                                                         echo "<div class='clearfix'></div>";
+                                                                         echo "</div>";
+                                                                         $hrs_seperator_start = false;
+                                                                     }
+
+                                                                     echo "
+                                                                     <div class='hrs_seperator note note-info'>
+                                                                     <div class='col-md-12'>
+                                                                     <h4 class='seperator_title'>$SEPERATE_hours</h4>
+                                                                     </div>";
+                                                                     $hrs_seperator_start = true;
+                                                                 }
+
+                                                                 $image  = $row['image'];
+                                                                 $thumb  = $row['image'].$resize_w300;
+                                                                 $hrs    = date("h:i A",$row['date_time']);
+
+                                                                 echo '<div class="col-md-2">
+                                                                 <img class="screenshot" src="'.$thumb.'" image="'.$image.'" alt="Screenshot at '.$hrs.'">
+
+
+                                                                 <p class="my-placeholder pull-left"><strong>'.(get_employee_name($row['employee_id'])).'</strong></p>
+                                                                 <p class="my-placeholder pull-right text-muted"><i class="fa fa-clock-o"></i> '.date("H:i a",$row['date_time']).'</p>
+
+
+                                                                 <div class="row">
+                                                                     <div class="col-md-6">
+                                                                         <i class="fa fa-mouse-pointer"></i> Mouse:
+                                                                         <div class="progress keyboard_movement">
+                                                                             <div class="progress-bar" role="progressbar" aria-valuenow="25" style="width: 25%"  aria-valuemin="0" aria-valuemax="100"></div>
+                                                                         </div>
+                                                                     </div>
+                                                                     <div class="col-md-6">
+                                                                         <i class="fa fa-keyboard-o"></i> Keyboard:
+                                                                         <div class="progress mouse_movement">
+                                                                           <div class="progress-bar" role="progressbar" aria-valuenow="50" style="width: 50%"  aria-valuemin="0" aria-valuemax="100"></div>
+                                                                         </div>
+                                                                     </div>
+                                                                   </div>
+                                                                 </div>';
+
+                                                                 $SEPERATE_hours_old = $SEPERATE_hours;
+                                                             }
+
+                                                             if($hrs_seperator_start == true){
+                                                                 echo "<div class='clearfix'></div>";
+                                                                 echo "</div>";
+                                                                 $hrs_seperator_start = false;
+                                                             }
+
                                              ?>
                                                         <?php }else{ ?>
 
@@ -1336,7 +1338,7 @@
                                                           </p>
 
                                                         <?php } ?>
-                                                        
+
                                                         </div>
 
 
@@ -1410,18 +1412,18 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <div class="row"> <!-- portlet box green -->
             									<div class=""> <!-- portlet-body form -->
             										<!-- BEGIN FORM-->
             											<div class="form-body">
                                                             <form action="reports.php#tab_attendance" class="filter_attendance_filter form-horizontal" method="GET">
-                        							
+
             												<br />
                                                             <input type="hidden" name="date_from" value="<?php echo $_GET['date_from']; ?>" />
             												<input type="hidden" name="date_to" value="<?php echo $_GET['date_to']; ?>" />
             												<div class="">
-            													<div class="col-md-3">
+            													<div class="col-md-6">
             														<div class="reportrange btn default">
             															<i class="fa fa-calendar"></i> &nbsp;
             															<span> </span>
@@ -1434,18 +1436,18 @@
             												</div>
                                                             </form>
             											</div>
-            										
+
             										<!-- END FORM-->
             									</div>
             								</div>
             							</div>
                                     </div>
                                     <br /><br />
-                                    
-                                    
+
+
                                     <?php
                                         $tbl_attendance = array();
-                                        
+
                                         $rows = sql($DBH, "SELECT * FROM tbl_attendance where company_id = ?",
                                         array($SESS_COMPANY_ID), "rows");
                                         $i = 0;
@@ -1454,14 +1456,14 @@
                                             $date_time      = date("D, d-M",$row['date_time']);
                                             $attachment     = $row['attachment'];
                                             //get_employee_name(2);
-                                            
+
                                             $tbl_attendance[$date_time][$e_id]['attachment'] = $attachment;
                                             $tbl_attendance[$date_time][$e_id]['time'] = date("h:i:s A",$row['date_time']);
                                             $tbl_attendance[$date_time][$e_id]['timestamp'] = $row['date_time'];
-                                            
-                                             
-                                                                                    
-                                            
+
+
+
+
                                         }
                                         ?>
                     										<table class="table table-striped table-bordered table-hover table-bordered" id="sample_2">
@@ -1470,7 +1472,7 @@
                                                                         <th>Name</th>
                                                                         <?php
                                                                             foreach($tbl_attendance as $date => $att_array){
-                                                                                echo "<th>$date</th>";                                                                                
+                                                                                echo "<th>$date</th>";
                                                                             }
                                                                         ?>
                                                                     </tr>
@@ -1492,7 +1494,7 @@
                                                                                 echo "</td>";
                                                                             }else{
                                                                                 echo "<td class='text-center'><br/><span class='text-muted'><i class='fa fa-2x fa-clock-o'></i><br/><br />Absent</span></td>";
-                                                                            }                                                                                                                         
+                                                                            }
                                                                         }
                                                                     ?>
                                                                </tr>
@@ -1502,24 +1504,24 @@
                                                                         foreach($tbl_attendance as $date => $att_array){
                                                                             if(strlen($att_array[5]['time']) > 0){
                                                                                 echo "<td>";
-                                                                                
+
                                                                                 $start_att  = strtotime(date("d-m-Y",strtotime($date)));
-                                                                                    
+
                                                                                 if($att_array[5]['timestamp'] > ($start_att+(10*(60*60))+(60*15))){
                                                                                      echo "<span class='text-danger'>".$att_array[5]['time']."</span>";
                                                                                 }else{
                                                                                      echo "<span class='text-success'>".$att_array[5]['time']."</span>";
                                                                                 }
-                                                                                
-                                                                                
+
+
                                                                                 echo "<a class='attachment' href='javascript:;' data-toggle='popover' title='' data-img='".$att_array[5]['attachment']."' data-original-title=''><img class='thumbnail_img' src='".$att_array[5]['attachment']."'></a>";
                                                                                 echo "</td>";
                                                                             }else{
                                                                                 echo "<td class='text-center'><br/><span class='text-muted'><i class='fa fa-2x fa-clock-o'></i><br/><br/>Absent</span></td>";
-                                                                            }                                         
+                                                                            }
                                                                         }
                                                                     ?>
-                                                                    
+
                                                                </tr>
                     											</tbody>
                     										</table>
@@ -1629,7 +1631,7 @@
                                                         }
 
                                                         $locations[$i]["icon"]       =  get_employee_photo($row['employee_id']);
-                                                        
+
                                                           if($movements == 0){
                                                             $movements_show= "<i class='fa'><img src='../img/sitting.png'/></i> Sitting</br>";
                                                           }else if($movements > 0 && $movements <= 10){
@@ -2251,7 +2253,7 @@
                                     </div>
                                     <!-- /.modal-dialog -->
                                 </div>
-                                
+
                                 <div class="modal fade" id="modal_asset_give" tabindex="-1" role="basic" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -2271,22 +2273,22 @@
                                                               <?php
                                                               $rows = sql($DBH, "SELECT id,fullname,access_level FROM tbl_login where company_id = ? AND status = ?",
                                                               array($SESS_COMPANY_ID,"active"), "rows");
-            
+
                                                               foreach($rows as $row){
                                                                   $id					  = $row['id'];
                                                                   $fullname			= $row['fullname'];
                                                                   $access_level	= $row['access_level'];
-            
+
                                                                   if($SESS_ID == $id){
                                                                     $access_level = "(You)";
                                                                   }else if($access_level == "admin"){
                                                                     $access_level = "(Admin)";
                                                                   }else if($access_level == "user"){
                                                                     $access_level = "(Employee)";
-                                                                  }            
-                                                                  echo "<option value='$id'>$fullname $access_level</option>";                                                                  
+                                                                  }
+                                                                  echo "<option value='$id'>$fullname $access_level</option>";
                                                               }
-            
+
                                                               ?>
                                                           </optgroup>
                                                         </select>
@@ -2395,10 +2397,10 @@
             }
 
             var locations = <?php echo json_encode($locations); ?>;
-            
+
             try{
                 map.setCenter(new google.maps.LatLng(locations[0]["latitude"], locations[0]["longitude"]))
-            }catch(e){                
+            }catch(e){
             }
 
             for (i = 0; i < locations.length; i++) {
@@ -2410,7 +2412,7 @@
                   strokeColor: '#000',
 		          strokeWeight: 3
                 };
-                
+
 
                 marker = new google.maps.Marker({
                     position: new google.maps.LatLng(locations[i]["latitude"], locations[i]["longitude"]),
@@ -2500,17 +2502,17 @@
 
 
         $(document).ready(function(){
-                
-                setTimeout(function(){                    
-                    $("#map").css('height',($(window).height()-200)+'px');                    
+
+                setTimeout(function(){
+                    $("#map").css('height',($(window).height()-200)+'px');
                     initMap();
                 },250);
-                    
+
                 $(".render_map").click(function(){
-                    setTimeout(function(){                    
-                        $("#map").css('height',($(window).height()-200)+'px');                    
+                    setTimeout(function(){
+                        $("#map").css('height',($(window).height()-200)+'px');
                         initMap();
-                    },250);                    
+                    },250);
                 });
 
 
@@ -2718,15 +2720,15 @@
 
                 var asset_action    = null;
                 var assets_id       = null;
-                
+
                 $('a.assests-return-btn').on('click',function(){
                     $this = $(this);
                   	assets_id        = $(this).attr('data-assets-id');
-                    asset_action     = "return";                    
-                    var emp_id       = $(this).attr('data-emp-id');                    
-                    $("select[name='asset_user_id']").val(emp_id);                    
+                    asset_action     = "return";
+                    var emp_id       = $(this).attr('data-emp-id');
+                    $("select[name='asset_user_id']").val(emp_id);
                     $("#modal_asset_give").modal("show");
-                    $(".btn_submit_asset").html("Return Asset"); 
+                    $(".btn_submit_asset").html("Return Asset");
                     $("select[name='asset_user_id']").parent().hide();
                     $("select[name='asset_user_id']").parent().siblings().removeClass("col-md-6").addClass("col-md-12");
                 })
@@ -2735,39 +2737,39 @@
                     $this           = $(this);
                     assets_id       = $(this).attr('data-assets-id');
                     asset_action    = "give";
-                    var emp_id       = $(this).attr('data-emp-id');                    
+                    var emp_id       = $(this).attr('data-emp-id');
                     $("select[name='asset_user_id']").val(emp_id);
                     $("#modal_asset_give").modal("show");
                     $(".btn_submit_asset").html("Give Asset");
                     $("select[name='asset_user_id']").parent().show();
                     $("select[name='asset_user_id']").parent().siblings().removeClass("col-md-12").addClass("col-md-6");
                 });
-                
+
                 $("form#asset_form").submit(function(e){
-                    e.preventDefault();                     
+                    e.preventDefault();
                     var asset_user_id   = $("select[name='asset_user_id']").val();
-                    var asset_comments  = $("textarea[name='asset_comments']").val();                    
-                                        
+                    var asset_comments  = $("textarea[name='asset_comments']").val();
+
                     $(".status[data-assets-id='"+assets_id+"']").html("<i class='fa fa-circle-o-notch fa-spin'></i> Updating..");
-                    $("#modal_asset_give").modal("hide");  
-                    $("a.assests-give-btn[data-assets-id='"+assets_id+"']").attr('data-emp-id',asset_user_id);                    
+                    $("#modal_asset_give").modal("hide");
+                    $("a.assests-give-btn[data-assets-id='"+assets_id+"']").attr('data-emp-id',asset_user_id);
                     $.ajax({
                   		method:'GET',
                   		url:'ajax/employee-ajax.php',
                   		data:{asset_action:asset_action,assets_id:assets_id,comment:asset_comments,asset_user_id:asset_user_id},
                   		success:function(response){
-          		            
-                          $("textarea[name='asset_comments']").val("");        
-                            
+
+                          $("textarea[name='asset_comments']").val("");
+
                           if(asset_action == "return"){
                             $(".status[data-assets-id='"+assets_id+"']").html("Returned");
-                            $('a.assests-return-btn[data-assets-id="'+assets_id+'"]').hide();   
-                            $('a.assests-give-btn[data-assets-id="'+assets_id+'"]').show();                             
+                            $('a.assests-return-btn[data-assets-id="'+assets_id+'"]').hide();
+                            $('a.assests-give-btn[data-assets-id="'+assets_id+'"]').show();
                           }else{
                             $(".status[data-assets-id='"+assets_id+"']").html("Given");
                             $('a.assests-give-btn[data-assets-id="'+assets_id+'"]').hide();
-                            $('a.assests-return-btn[data-assets-id="'+assets_id+'"]').show();            
-                          }                          
+                            $('a.assests-return-btn[data-assets-id="'+assets_id+'"]').show();
+                          }
                   		}
                   	});
                 });
@@ -2837,29 +2839,31 @@
         							$show_date_to 		= date("M d, Y",time());
         						}
         					?>
-                            
-                            
-                            var date_from 	= "<?php echo $show_date_from; ?>";
+
+
+                  var date_from 	= "<?php echo $show_date_from; ?>";
         					var date_to		  = "<?php echo $show_date_to; ?>";
 
         					if(date_from == "" && date_to == ""){
-                                $(".reportrange span").text("<?php echo $showing_last_hours_xml ?>");
+                    $(".reportrange span").text("<?php echo $showing_last_hours_xml ?>");
         					}else if(date_from == date_to){
-        						$(".reportrange span").text(date_from);
-                            }else{
+        						$(".reportrange span").text(date_from+" - "+date_from);
+                  }else{
         						$(".reportrange span").text(date_from+" - "+date_to);
-                            }
+                  }
         					$(".reportrange span").show();
+
                 },50);
+
 
 
 
         				$(".screenshot_filter").click(function(){
         					var date_from 	= $("input[name='daterangepicker_start']").val();
-        					var date_to		= $("input[name='daterangepicker_end']").val();  
-                                            
-                            
-                            
+        					var date_to		= $("input[name='daterangepicker_end']").val();
+
+
+
                             if(date_from != "" && date_to != ""){
                                 $("input[name='date_from']").val(date_from);
             					$("input[name='date_to']").val(date_to);
@@ -2867,15 +2871,15 @@
             						$(".reportrange span").text("<?php echo $showing_last_hours_xml; ?>");
             					}
                             }
-                            
+
                             $(".form_screenshot_filter").submit();
-        					
+
         				});
-                        
+
                         $(".attendance_filter").click(function(){
         					var date_from 	= $("input[name='daterangepicker_start']").val();
-        					var date_to		= $("input[name='daterangepicker_end']").val();  
-                            
+        					var date_to		= $("input[name='daterangepicker_end']").val();
+
                             if(date_from != "" && date_to != ""){
                                 $("input[name='date_from']").val(date_from);
             					$("input[name='date_to']").val(date_to);
@@ -2883,9 +2887,9 @@
             						$(".reportrange span").text("<?php echo $showing_last_hours_xml; ?>");
             					}
                             }
-                            
+
                             $(".form_attendance_filter").submit();
-        					
+
         				});
 
                 $('.attachment[data-toggle="popover"]').popover({
@@ -2912,7 +2916,7 @@
                           alert("Please select an expense!");
                           $("select[name='bulk_status_change']").val("");
                      }else{
-            						    
+
                                         /*if(new_status == "reject"){
             								var x = prompt("Please specify a reason for rejection of "+total_checked+" selected expense(s)!");
             							}else{
@@ -3021,8 +3025,8 @@
         				});
 
             $('[data-toggle="tooltip"]').tooltip();
-            
-            
+
+
             var right_height = $(".right-tab-content-data").height();
             if(right_height > 500){
               //alert(right_height);

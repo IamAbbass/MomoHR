@@ -9,7 +9,7 @@
 
         echo "<table>";
   echo "<tr><th>#</th><th>Location</th><th>Accuracy (m)</th><th>Distance (m)</th><th>Time (sec)</th><th>Speed (km/h)</th><th>Date Time</th><tr>";
-	$rows = sql($DBH,"select * from tbl_locations where employee_id = ? order by (date_time) asc",array("2"),"rows");
+	$rows = sql($DBH,"select * from tbl_locations where employee_id = ? order by (date_time) asc",array("5"),"rows");
 
   $old_lat = null;
   $old_lon = null;
@@ -46,6 +46,9 @@
       if($distance <= 10){
           continue;
       }
+			if($accuracy > 100){
+					continue;
+			}
     }
 
 

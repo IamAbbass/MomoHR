@@ -1809,6 +1809,8 @@
 
                                             if($old_lat == null || $old_lon == null){
                                               $distance = "Starting Point";
+
+
                                             }else{
                                               $distance  = haversineGreatCircleDistance( $old_lat, $old_lon, $latitude, $longitude);
                                               $time      = round($gps_timestamp-$old_ts,2);
@@ -1820,14 +1822,17 @@
                                               if($time <= 0){ //old data
                                                   continue;
                                               }
-                                              if($distance <= 10){
+                                              if($distance <= 50){
+                                                  continue;
+                                              }
+                                              if($accuracy > 100){
                                                   continue;
                                               }
                                             }
 
 
                                             //for map
-                                            $locations[$i]["data"]       = "<i class='fa fa-clock-o'></i> Date Time: ".date("H:i:s a",$gps_timestamp)."</br>";
+                                            $locations[$i]["data"]       = "<i class='fa fa-clock-o'></i> Date Time: ".my_simple_date($gps_timestamp)."</br>";
                                             $locations[$i]["data"]       .= "<i class='fa fa-street-view'></i> Accuracy: ".round($accuracy)."m</br>";
                                             //$locations[$i]["data"]       .= $movements_show."</br>";
                                             $locations[$i]["data"]       .= "<i class='fa fa-car'></i> Speed: $speed m/s";
@@ -1850,12 +1855,18 @@
 
                                         <div class="col-md-4" style="max-height: 600px;overflow-y: auto;padding: 0 0 0 6px;">
                                             <?php
-                                                foreach($locations as $location){
-                                                    echo "<div style='margin:0 0 5px 0' class='note note-info'>".($location['data'])."</div>";
+                                                for($i=0; $i< count($locations); $i++){
+
+                                                    if($i == count($locations)-1){
+                                                      //  echo "last location";
+                                                    }else{
+                                                      echo "<div style='margin:0 0 5px 0' class='note note-info'>".($i+1).". ".($locations[$i]['data'])."</div>";
+                                                    }
+
                                                 }
 
                                                 if(count($locations) == 0){
-                                                echo "<div style='margin:0 0 5px 0' class='note note-danger'> No Location History</div>";
+                                                  echo "<div style='margin:0 0 5px 0' class='note note-danger'> No Location History</div>";
                                                 }
                                             ?>
                                         </div>
