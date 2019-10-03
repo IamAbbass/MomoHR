@@ -195,7 +195,7 @@
 
         sql($DBH, "insert into tbl_screenshot(company_id,employee_id,image,mouse,keyboard,date_time) values (?,?,?,?,?,?)",
       	array($company_id,$u_id,$url,$mouse,$keyboard,time()), "rows");
-        die('send from local momohr');
+        die('send');
 
        }
        catch(OssException $e) {
