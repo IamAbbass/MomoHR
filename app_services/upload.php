@@ -1,12 +1,12 @@
 <?php
 	header("Access-Control-Allow-Origin: *");
-    
+
 	require_once('../class_function/session.php');
 	require_once('../class_function/error.php');
 	require_once('../class_function/dbconfig.php');
 	require_once('../class_function/function.php');
-    
- 
+
+
     //alibaba start
     require_once('../class_function/alibaba_cloud/autoload.php');
     use OSS\OssClient;
@@ -152,10 +152,12 @@
             die(json_encode($arr));
         }
     }else if($_POST['type'] == "screenshot"){
-        
-        
+
+
         $u_id           = $_POST['u_id'];
         $screenshot     = $_FILES['shot']['name'];
+				$mouse = $_POST['mouse'];
+				$keyboard = $_POST['keyboard'];
         $fileName       = time().".png";
         $ossClient = new OssClient($accessKeyId, $accessKeySecret, $endpoint);
         $object = "attachments/".$fileName;
@@ -175,9 +177,9 @@
             $arr['error']   = "";
             $arr['url']     = $url;
             $arr['size']    = $size_upload;
-           
-      
-      
+
+
+
         /*$output_file    =
 
         $ifp = fopen( $output_file, 'wb' );
@@ -188,14 +190,14 @@
 
         die("NO:".$output_file);
         */
-        
+					//die('this is from local host');
 		$company_id = find_company_id($u_id);
 
-        sql($DBH, "insert into tbl_screenshot(company_id,employee_id,image,date_time) values (?,?,?,?)",
-      	array($company_id,$u_id,$url,time()), "rows");
-        die('send');
-        
-       } 
+        sql($DBH, "insert into tbl_screenshot(company_id,employee_id,image,mouse,keyboard,date_time) values (?,?,?,?,?,?)",
+      	array($company_id,$u_id,$url,$mouse,$keyboard,time()), "rows");
+        die('send from local momohr');
+
+       }
        catch(OssException $e) {
             $arr['error']   = print_r($e->getMessage(),true);
             die(json_encode($array));

@@ -150,7 +150,7 @@
 
     //WEBSITE URL
 
-	$website_url        	= "http://localhost/zed/MomoHR/";
+	$website_url        	= "http://localhost/github/MomoHR/";
 	//$website_url = "http://localhost/zed/momohr-13-01-2019/";
 
 	$website_email      	= "";

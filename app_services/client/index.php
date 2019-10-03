@@ -11,7 +11,7 @@
 		<div id="curr_version"></div>
 		<div class="alert alert-info" id="updates">
 			<p><b>Update Available</b></p>
-			
+
 		</div>
 		<div id="dwn-update"></div>
 	</div>
@@ -22,6 +22,8 @@
   crossorigin="anonymous"></script>
   <script type="text/javascript" src="crypto.js"></script>
 <script type="text/javascript">
+
+	var base_url 				= "http://192.168.1.118/github/MomoHR/app_services/";
 	$(document).ready(function () {
 		var CryptoJSAesJson = {
 		    stringify: function (cipherParams) {
@@ -38,7 +40,7 @@
 		        return cipherParams;
 		    }
 		}
-		
+
 		var encrypted = CryptoJS.AES.encrypt(JSON.stringify("true"), "key@zeddevelopers.com", {format: CryptoJSAesJson}).toString();
 		 $prev_version_id = localStorage.getItem('version_id');
 		 if ($prev_version_id == 'undefined' || $prev_version_id == null) {
@@ -57,7 +59,8 @@
 			// setTimeout(function() {
 				$.ajax({
 					method:'POST',
-					url:'https://zeddevelopers.com/@beta/app/Hamza-Testing/ajax_check_updates.php',
+					//url:'https://zeddevelopers.com/@beta/app/Hamza-Testing/ajax_check_updates.php',
+					url:base_url+'client/ajax_check_updates.php',
 					data:{checkUpdates:true,encrypted_text:encrypted},
 					success:function(response) {
 					$json_data =	JSON.parse(response);
@@ -76,7 +79,7 @@
 									downloadUpdate();
 								}
 							}
-							else{	
+							else{
 
 								$('#updates').append('<a href="#" class="btn-download-update" data-version-id='+$new_version_id+' data-file-url='+$file_url+'>Click here to Update</a><p>Date: '+$version_date+'</p>');
 								downloadUpdate();
@@ -120,9 +123,9 @@
 							localStorage.setItem('version_id',$versionId);
 							localStorage.setItem('readyToExtract',false);
 						}
-					})	
+					})
 				})
-				
+
 			}
 			function downloadUpdate() {
 				$dwnUpdate = $('#dwn-update');
@@ -148,7 +151,7 @@
 				})
 			}
 
-		
+
 	})
 
 
