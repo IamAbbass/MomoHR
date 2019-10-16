@@ -73,7 +73,7 @@
         if(strlen($pass) == 0){
             $pass = "123";
         }
-        
+
 		$md5_token   = md5($login_token);
 		$password 	 = md5(md5(md5($md5_token) . md5($pass)) . md5($md5_token));
 
@@ -98,7 +98,7 @@
 		}else{
             sql($DBH,"INSERT INTO tbl_login (fullname, dob, email, contact, address, city, country, password, pass_token, hash, date_time, access_level,company_id)
 		      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-			  array($fullname, $dob, $email, $contact, $address, $city, $country, $password, $md5_token, unique_md5(), time(), $_POST['access_level'],$SESS_COMPANY_ID));
+			  array($fullname, $dob, $email, $contact, $address, $city, $country, $password, $md5_token, unique_md5(), time(), $_POST['access_level'],$SESS_COMPANY_ID),"rows");
         	/*sql($DBH,"INSERT INTO tbl_login (fullname, dob, email, contact, hash, password, pass_token, date_time, access_level, comapny_id)
 			VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
 			array($fullname, $dob, $email, $contact, unique_md5(), $password, $md5_token, time(), "user", $SESS_ID));*/
@@ -109,21 +109,21 @@
         	$result 	   	         = $STH->execute(array($EMP_ID));
         	$count_data_options	     = $STH->fetchColumn();
             if($count_data_options == 0){
-                sql($DBH,"INSERT INTO tbl_data_interval_options (employee_id) VALUES (?);",array($EMP_ID));
+                sql($DBH,"INSERT INTO tbl_data_interval_options (employee_id) VALUES (?);",array($EMP_ID),"rows");
             }
 
             $STH 			         = $DBH->prepare("select count(*) FROM tbl_data_interval_time where employee_id =  ?");
         	$result 	   	         = $STH->execute(array($EMP_ID));
         	$count_data_interval	 = $STH->fetchColumn();
             if($count_data_interval == 0){
-                sql($DBH,"INSERT INTO tbl_data_interval_time (employee_id) VALUES (?);",array($EMP_ID));
+                sql($DBH,"INSERT INTO tbl_data_interval_time (employee_id) VALUES (?);",array($EMP_ID),"rows");
             }
 
             $STH 			         = $DBH->prepare("select count(*) FROM tbl_remove_device_lock where employee_id =  ?");
         	$result 	   	         = $STH->execute(array($EMP_ID));
         	$count_data_interval	 = $STH->fetchColumn();
             if($count_data_interval == 0){
-                sql($DBH,"INSERT INTO tbl_remove_device_lock (employee_id) VALUES (?);",array($EMP_ID));
+                sql($DBH,"INSERT INTO tbl_remove_device_lock (employee_id) VALUES (?);",array($EMP_ID),"rows");
             }
 
             $STH 			         = $DBH->prepare("select count(*) FROM tbl_screenshot_settings where employee_id =  ?");

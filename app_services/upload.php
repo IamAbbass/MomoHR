@@ -178,8 +178,12 @@
             $arr['url']     = $url;
             $arr['size']    = $size_upload;
 
-
-
+						if(empty($mouse)){
+							$mouse = 0;
+						}
+						if(empty($keyboard)){
+							$keyboard = 0;
+						}
         /*$output_file    =
 
         $ifp = fopen( $output_file, 'wb' );
@@ -195,7 +199,7 @@
 
         sql($DBH, "insert into tbl_screenshot(company_id,employee_id,image,mouse,keyboard,date_time) values (?,?,?,?,?,?)",
       	array($company_id,$u_id,$url,$mouse,$keyboard,time()), "rows");
-        die('send');
+        die('send and store'.$mouse.":".$keyboard);
 
        }
        catch(OssException $e) {

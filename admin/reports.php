@@ -109,6 +109,12 @@
 		redirect('index.php');
 	}
 
+  //date filter
+  $date_from  = $_GET['date_from'];
+  $date_to    = $_GET['date_to'];
+
+  if($date_from == ""){$date_from = date("Y-m-d", time());}
+  if($date_to == ""){$date_to = date("Y-m-d", time());}
 
 
     //Geo Fence Code
@@ -219,11 +225,13 @@
             }
         }
     }
-
     //5. Compensation
     function get_employee_compensation()
     {
-    	global $DBH,$SESS_COMPANY_ID;
+    	global $DBH, $SESS_COMPANY_ID;
+      //die(json_encode($SESS_COMPANY_ID));
+
+
     	$dataArray =  array($SESS_COMPANY_ID,'1');
     	$data = sql($DBH,'select * from tbl_compensation where company_id = ? and status = ? ',$dataArray,'rows');
     	if ($data) {
@@ -262,13 +270,13 @@
 
     //7. expense
     $rows = sql($DBH,'select sum(amount) as total from tbl_expense_refund where company_id = ? and status = ?',
-    array($SESS_COMPANY_ID,"pending"),'rows');
+    array($_SESSION['SESS_COMPANY_ID'],"pending"),'rows');
     foreach($rows as $row){
         $expense_total = $row['total'];
     }
 
+    //die(json_encode($row['total']));
 ?>
-
 
 
 <!DOCTYPE html>
@@ -936,247 +944,236 @@
                                                   <?php } ?>
                                                 </div>
 
+                                                <!-- table expense-->
+
+                                                <?php //die(json_encode($_SESSION)); ?>
 
                                                 <div class="tab-pane fade" id="tab_expense">
-                                                  <div class="row">
-                                                      <div class="col-md-12">
-                                                        <h2 class="page-title no_margin"> <i class="fa fa-usd"></i> Expense</h2>
-                                                      </div>
-                                                  </div>
+                                                <div class="row">
+                                                <div class="col-md-6">
+                                                <h2 class="page-title no_margin"> <i class="fa fa-usd"></i> Expense</h2>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <a href="add_project.php#tab_expense" type="button" class="btn btn-primary" name="btn-expense">Add New Project</a>
+                                                </div>
+                                                <div class="col-md-3">
+                                                  <a href="add_expense.php#tab_expense" type="button" class="btn btn-primary" name="btn-expense">Add New Expense</a>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                                                    	<br />
+                                                        <!-- <form action="" class="form-horizontal filter_form5" method="GET">
+                                                            <input type="hidden" name="page5" value="tab_expense" />
+                                                            <input type="hidden" name="id5" value="<?php echo $_GET['id'] ?>" />
 
-                                                  <div class="row">
-                                                    <div class="col-md-12 hidden">
-                    										              <form id="filter_todo" action="employee-profile.php#tab_expense" class="form-horizontal" method="GET">
-                                  											<!-- <input type="hidden" name="id" value="<?= $employee_login['id'] ?>" /> -->
-
-                                                        <div class="form-body ">
-                                  												<input type="hidden" name="date_from" value="<?php echo $_GET['date_from']; ?>" />
-                                  												<input type="hidden" name="date_to" value="<?php echo $_GET['date_to']; ?>" />
-
-          												                          <div class="form-group">
-                                                              <div class="col-md-2">
-                                                                  <select class="form-control" name="status">
-                                                                      <option value="">Filter</option>
-                                                                      <option <?php if($_GET['status'] == "pending") echo "selected"; ?> value="pending">Pending</option>
-                                                                      <option <?php if($_GET['status'] == "approved") echo "selected"; ?> value="approved">Approved</option>
-                                                                      <option <?php if($_GET['status'] == "rejected") echo "selected"; ?> value="rejected">Rejected</option>
-                                                                      <option <?php if($_GET['status'] == "paid") echo "selected"; ?> value="paid">Paid</option>
-                                                                  </select>
-                                                              </div>
-                                    													<div class="col-md-2">
-                                    														<button type="submit" class="btn green"><i class="fa fa-filter"></i> <?php echo $filter_xml; ?></button>
-                                    													</div>
-                                                              <div class="col-md-4">
-                                                                  <button type="button" class="btn btn-default btn-sm select_all"><i class='fa fa-check-square-o'></i> Select All</button>
-                                                                  <button type="button" class="btn btn-default btn-sm unselect_all"><i class='fa fa-square-o'></i> Deselect All</button>
-                                                              </div>
-                                                              <div class="col-md-4">
-                                                                  <select class="form-control" name="bulk_status_change">
-                                                                      <option value="">Bulk Status Update</option>
-                                                                      <option value="approve">Approve</option>
-                                                                      <option value="reject">Reject</option>
-                                                                      <option value="paid">Paid</option>
-                                                                  </select>
-                                                              </div>
-                                    												</div>
-                                    											</div>
-                                    										</form>
-                                                      </div>
-
-                                                	<?php
-                                        								$date_from  = $_GET['date_from'];
-                                        								$date_to  	= $_GET['date_to'];
-                                        								$emp_id     = $_GET['id'];
-                                                        $status     = "%".$_GET['status']."%";
-
-
-                                        								if(strlen($date_from) > 0 && strlen($date_to) > 0){
-                                            									$from_ts    = strtotime($date_from);
-                                            									$to_ts      = strtotime($date_to);
-                                            									$to_ts      = $to_ts+86400;
-
-
-                                                              $rows = sql($DBH, "SELECT * FROM tbl_expense_refund where date_time >= ? AND date_time <= ? AND company_id = ? AND status like ? order by(id) desc",
-                      									                      array($from_ts,$to_ts,$SESS_COMPANY_ID,$status), "rows");
-
-                                                              $STH 	 		= $DBH->prepare("SELECT count(*) FROM tbl_expense_refund where date_time >= ? AND date_time <= ? AND company_id = ? AND status like ?");
-                        									                    $result  		= $STH->execute(array($from_ts,$to_ts,$SESS_COMPANY_ID,$status));
-                        									                    $count_total	= $STH->fetchColumn();
-
-                                                            if((strlen($date_from) > 0 && strlen($date_to) > 0)){
-                                          										$filter_text = " - from ".$date_from." to ".$date_to;
-                                          									}
-
-        									                                 $filter_text .= " <a href='".$_SERVER['PHP_SELF']."' class='btn btn-default btn-xs btn-circle'>$clear_filter_xml</a>";
-                                                        }else{
-                                        									 $date_from = date("m/d/Y");
-                                        									 $date_to   = date("m/d/Y");
-
-                                                            $rows = sql($DBH, "SELECT * FROM tbl_expense_refund where company_id = ? AND status like ? order by(id) desc",
-                                                            array($SESS_COMPANY_ID,$status), "rows");
-                                          									$filter_text    = "";
-                                          									$STH 	 		= $DBH->prepare("SELECT count(*) FROM tbl_expense_refund where company_id = ? AND status like ?");
-                                          									$result  		= $STH->execute(array($SESS_COMPANY_ID,$status));
-                                          									$count_total	= $STH->fetchColumn();
-        								                              }
-
-
-                                                    $title = "Expense ($count_total)<small>$filter_text</small>";
-
-        							                         ?>
-                                                    <div class="portlet box">
-                                      									<div class="portlet-title">
-                                      										<div class="caption"><?= $title ?></div>
-                    									                   </div>
-                                                         <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-
-                                                           <?php if(count($rows) > 0){ ?>
-
-
-                                                            <table class="table table-striped table-hover table-bordered table-documents" id="expense_table">
-
-
-                    											<thead>
-                                            <tr>
-                                              <th>#</th>
-                                              <th>Employee Name</th>
-                                              <th>Thumbnail</th>
-                                              <th>Expense</th>
-                                              <th>Amount</th>
-                                              <th>Date Time</th>
-                                              <th>Status</th>
-                                              <th>Action</th>
-                                            </tr>
-                    											</thead>
-                    											<tbody>
-                                              <?php
-
-                                              $sno = 0;
-                                              foreach($rows as $row){
-                                              $sno++;
-                                              $id					= $row['id'];
-                                              $employee_id    	= $row['employee_id'];
-                                              $title              = $row['title'];
-                                              $amount             = $row['amount'];
-                                              $attachment			= $row['attachment'];
-                                              $date_time			= my_simple_date($row['date_time']);
-                                              $status 			= $row['status'];
-                                              $reason				= $row['reason'];
-                                              $status_date_time   = my_simple_date($row['status_date_time']);
-
-                                              //employee name
-                                              $rows2 		= sql($DBH, "SELECT * FROM tbl_login where id = ? ", array($employee_id), "rows");
-                                              foreach($rows2 as $row2){
-                                              $employee_name	= $row2['fullname'];
-                                              }
-
-                                              if($status == "pending" || $status == ""){
-                                              $status_badge_text  = "<i class='fa fa-clock-o'></i> Pending";
-                                              $status_badge_class = "default";
-                                              $btn_approve    = "";
-                                              $btn_reject     = "";
-                                              $btn_paid       = "style='display:none'";
-                                              $btn_no_action  = "style='display:none'";
-                                              }else if($status == "approved"){
-                                              $status_badge_text  = "<i class='fa fa-check'></i> Approved";
-                                              $status_badge_class = "warning";
-                                              $btn_approve    = "style='display:none'";
-                                              $btn_reject     = "style='display:none'";
-                                              $btn_paid       = "";
-                                              $btn_no_action  = "style='display:none'";
-                                              }else if($status == "rejected"){
-                                              $status_badge_text  = "<i class='fa fa-times'></i> Rejected";
-                                              $status_badge_class = "danger";
-                                              $btn_approve    = "style='display:none'";
-                                              $btn_reject     = "style='display:none'";
-                                              $btn_paid       = "style='display:none'";
-                                              $btn_no_action  = "";
-                                              }else if($status == "paid"){
-                                              $status_badge_text  = "<i class='fa fa-dollar'></i> Paid";
-                                              $status_badge_class = "success";
-                                              $btn_approve    = "style='display:none'";
-                                              $btn_reject     = "style='display:none'";
-                                              $btn_paid       = "style='display:none'";
-                                              $btn_no_action  = "";
-                                              }else if($status == "deleted"){
-                                              $status_badge_text  = "<i class='fa fa-times'></i> Deleted: $status_date_time";
-                                              $status_badge_class = "default";
-                                              $btn_approve    = "style='display:none'";
-                                              $btn_reject     = "style='display:none'";
-                                              $btn_paid       = "style='display:none'";
-                                              $btn_no_action  = "";
-                                              }
-
-                                              $action_btn 	= "<span $btn_approve expense_id='$id' action='approve' class='btn btn-warning btn-xs action_opt action_btn'>
-                                              <i class='fa fa-check'></i> Approve
-                                              </span>";
-
-                                              $action_btn 	.= "<span $btn_reject expense_id='$id' action='reject' class='btn btn-danger btn-xs action_opt action_btn'>
-                                              <i class='fa fa-times'></i> Reject
-                                              </span>";
-
-                                              $action_btn 	.= "<span $btn_paid expense_id='$id' action='paid' class='btn btn-success btn-xs action_opt action_btn'>
-                                              <i class='fa fa-usd'></i> Pay
-                                              </span>";
-
-                                              if($status == "rejected"){
-                                              $status .= ": <b>$reason</b>";
-                                              }
-
-                                              $action_btn 	.= "<span expense_id='$id' action='no_action' $btn_no_action class='action_opt'>".ucfirst($status)."</span>";
-
-                                              $status_badge 	= "<span expense_id='$id' data-toggle='popover' title='".ucfirst($status)."' data-content='".$status_date_time."' expense_id='$id' class='expense_status badge badge-".$status_badge_class."'>".$status_badge_text."</span>";
-
-
-                                              ?>
-
-                                              <tr>
-                                              <td>
-                                              <div class="md-checkbox hidden">
-                                              <input name="check_<?php echo $sno; ?>" value="<?php echo $id; ?>" type="checkbox" id="check_<?php echo $sno; ?>" class="md-check bulk_check" />
-                                              <label for="check_<?php echo $sno; ?>">
-                                              <span></span>
-                                              <span class="check"></span>
-                                              <span class="box"></span> <?php echo $sno; ?>. </label>
-                                              </div>
-                                              <?php echo $sno."."; ?>
-                                              </td>
-                                              <td><?php echo get_employee_name($employee_id); ?></td>
-                                              <td><a class="attachment" href="javascript:;" data-toggle="popover" title="<?php echo $title; ?>" data-img="<?php echo $attachment; ?>"><img class="thumbnail_img" src="<?php echo $attachment; ?>" alt="<?php echo $title; ?>" /></a></td>
-                                              <td><?php echo $title; ?></td>
-                                              <td>$<?php echo $amount; ?></td>
-                                              <td><?php echo $date_time; ?></td>
-                                              <td><?php echo $status_badge; ?></td>
-                                              <td><?php echo $action_btn; ?></td>
-                                              </tr>
-
-
-
-                                              <?php
-                                              }
-
-                                              ?>
-                    											</tbody>
-                    										</table>
-
-
-                                      <?php }else{ ?>
-
-                                        <p class="text-center text-muted">
-                                        <i class="fa fa fa-usd fa-3x"></i>
-                                        <br />
-                                        <br />
-                                        No expense added!
-                                        <br />
-                                        </p>
-
-
-                                      <?php } ?>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="input-group input-large date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                                                                    <input type="text" class="form-control" value="<?php echo $date_from; ?>" name="date_from5" readonly="" />
+                                                                    <span class="input-group-addon"> to </span>
+                                                                    <input type="text" class="form-control" value="<?php echo $date_to; ?>" name="date_to5" readonly="" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <button type="submit" class="btn yellow"><i class="fa fa-filter"></i> <?php echo $filter_xml; ?></button>
+                                                                </div>
                                                             </div>
+                                                        </form> -->
+                        						            </div>
+                                                </div>
+                                                <div class="row">
+                                                <div class="col-md-12 hidden">
+                                                <form id="filter_todo" action="employee-profile.php#tab_expense" class="form-horizontal" method="GET">
+                                                <!-- <input type="hidden" name="id" value="<?= $_SESSION['SESS_ID'] ?>" /> -->
+                                                <div class="form-body ">
+                                                <input type="hidden" name="date_from" value="<?php echo $date_from; ?>" />
+                                                <input type="hidden" name="date_to" value="<?php echo $date_to; ?>" />
 
-                    								</div>
+                                                <div class="form-group">
+                                                <div class="col-md-2">
+                                                <select class="form-control" name="status">
+                                                <option value="">Filter</option>
+                                                <option <?php if($_GET['status'] == "pending") echo "selected"; ?> value="pending">Pending</option>
+                                                <option <?php if($_GET['status'] == "approved") echo "selected"; ?> value="approved">Approved</option>
+                                                <option <?php if($_GET['status'] == "rejected") echo "selected"; ?> value="rejected">Rejected</option>
+                                                <option <?php if($_GET['status'] == "paid") echo "selected"; ?> value="paid">Paid</option>
+                                                </select>
+                                                </div>
+                                                <div class="col-md-2">
+                                                <button type="submit" class="btn green"><i class="fa fa-filter"></i> <?php echo $filter_xml; ?></button>
+                                                </div>
+                                                <div class="col-md-4">
+                                                <button type="button" class="btn btn-default btn-sm select_all"><i class='fa fa-check-square-o'></i> Select All</button>
+                                                <button type="button" class="btn btn-default btn-sm unselect_all"><i class='fa fa-square-o'></i> Deselect All</button>
+                                                </div>
+                                                <div class="col-md-4">
+                                                <select class="form-control" name="bulk_status_change">
+                                                <option value="">Bulk Status Update</option>
+                                                <option value="approve">Approve</option>
+                                                <option value="reject">Reject</option>
+                                                <option value="paid">Paid</option>
+                                                </select>
+                                                </div>
+                                                </div>
+                                                </div>
+                                                </form>
+                                                </div>
 
-                                                 </div>
+                                                <?php
+                                                $status     = "%".$_GET['status']."%";
+
+
+                                                $rows = sql($DBH, "SELECT * FROM tbl_expense_refund where employee_id = ?  order by(id) desc",
+                                                array($_SESSION['SESS_ID']), "rows");
+                                                $filter_text    = "";
+                                                $STH 	 		= $DBH->prepare("SELECT count(*) FROM tbl_expense_refund where employee_id = ? ");
+                                                $result  		= $STH->execute(array($_SESSION['SESS_ID']));
+                                                $count_total	= $STH->fetchColumn();
+
+
+
+                                                $title = "Expense ($count_total)<small>$filter_text</small>";
+
+                                                ?>
+                                                <div class="portlet box">
+                                                <div class="portlet-title">
+                                                <div class="caption"><?= $title ?></div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+
+                                                <?php if(count($rows) > 0){ ?>
+
+
+                                                <table class="table table-striped table-hover table-bordered table-documents" id="expense_table">
+
+
+                                                <thead>
+                                                <tr>
+                                                <th>#</th>
+                                                <th>Thumbnail</th>
+                                                <th>Expense</th>
+                                                <th>Amount</th>
+                                                <th>Date Time</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <?php
+
+                                                $sno = 0;
+                                                foreach($rows as $row){
+                                                $sno++;
+                                                $id					= $row['id'];
+                                                $employee_id    	= $row['employee_id'];
+                                                $title              = $row['title'];
+                                                $amount             = $row['amount'];
+                                                $attachment			= $row['attachment'];
+                                                $date_time			= my_simple_date($row['date_time']);
+                                                $status 			= $row['status'];
+                                                $reason				= $row['reason'];
+                                                $status_date_time   = my_simple_date($row['status_date_time']);
+
+                                                //employee name
+                                                $rows2 		= sql($DBH, "SELECT * FROM tbl_login where id = ? ", array($employee_id), "rows");
+                                                foreach($rows2 as $row2){
+                                                $employee_name	= $row2['fullname'];
+                                                }
+
+                                                if($status == "pending" || $status == ""){
+                                                $status_badge_text  = "<i class='fa fa-clock-o'></i> Pending";
+                                                $status_badge_class = "default";
+                                                $btn_approve    = "";
+                                                $btn_reject     = "";
+                                                $btn_paid       = "style='display:none'";
+                                                $btn_no_action  = "style='display:none'";
+                                                }else if($status == "approved"){
+                                                $status_badge_text  = "<i class='fa fa-check'></i> Approved";
+                                                $status_badge_class = "warning";
+                                                $btn_approve    = "style='display:none'";
+                                                $btn_reject     = "style='display:none'";
+                                                $btn_paid       = "";
+                                                $btn_no_action  = "style='display:none'";
+                                                }else if($status == "rejected"){
+                                                $status_badge_text  = "<i class='fa fa-times'></i> Rejected";
+                                                $status_badge_class = "danger";
+                                                $btn_approve    = "style='display:none'";
+                                                $btn_reject     = "style='display:none'";
+                                                $btn_paid       = "style='display:none'";
+                                                $btn_no_action  = "";
+                                                }else if($status == "paid"){
+                                                $status_badge_text  = "<i class='fa fa-dollar'></i> Paid";
+                                                $status_badge_class = "success";
+                                                $btn_approve    = "style='display:none'";
+                                                $btn_reject     = "style='display:none'";
+                                                $btn_paid       = "style='display:none'";
+                                                $btn_no_action  = "";
+                                                }else if($status == "deleted"){
+                                                $status_badge_text  = "<i class='fa fa-times'></i> Deleted: $status_date_time";
+                                                $status_badge_class = "default";
+                                                $btn_approve    = "style='display:none'";
+                                                $btn_reject     = "style='display:none'";
+                                                $btn_paid       = "style='display:none'";
+                                                $btn_no_action  = "";
+                                                }
+
+                                                $action_btn 	= "<span $btn_approve expense_id='$id' action='approve' class='btn btn-warning btn-xs action_opt action_btn'>
+                                                <i class='fa fa-check'></i> Approve
+                                                </span>";
+
+                                                $action_btn 	.= "<span $btn_reject expense_id='$id' action='reject' class='btn btn-danger btn-xs action_opt action_btn'>
+                                                <i class='fa fa-times'></i> Reject
+                                                </span>";
+
+                                                $action_btn 	.= "<span $btn_paid expense_id='$id' action='paid' class='btn btn-success btn-xs action_opt action_btn'>
+                                                <i class='fa fa-usd'></i> Pay
+                                                </span>";
+
+                                                if($status == "rejected"){
+                                                $status .= ": <b>$reason</b>";
+                                                }
+
+                                                $action_btn 	.= "<span expense_id='$id' action='no_action' $btn_no_action class='action_opt'>".ucfirst($status)."</span>";
+
+                                                $status_badge 	= "<span expense_id='$id' data-toggle='popover' title='".ucfirst($status)."' data-content='".$status_date_time."' expense_id='$id' class='expense_status badge badge-".$status_badge_class."'>".$status_badge_text."</span>";
+
+
+                                                ?>
+
+                                                <tr>
+                                                <td>
+                                                <div class="md-checkbox hidden">
+                                                <input name="check_<?php echo $sno; ?>" value="<?php echo $id; ?>" type="checkbox" id="check_<?php echo $sno; ?>" class="md-check bulk_check" />
+                                                <label for="check_<?php echo $sno; ?>">
+                                                <span></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span> <?php echo $sno; ?>. </label>
+                                                </div>
+                                                <?php echo $sno."."; ?>
+                                                </td>
+                                                <td><a class="attachment" href="javascript:;" data-toggle="popover" title="<?php echo $title; ?>" data-img="<?php echo $attachment; ?>"><img class="thumbnail_img" src="<?php echo $attachment; ?>" alt="<?php echo $title; ?>" /></a></td>
+                                                <td><?php echo $title; ?></td>
+                                                <td>$<?php echo $amount; ?></td>
+                                                <td><?php echo $date_time; ?></td>
+                                                <td><?php echo $status_badge; ?></td>
+                                                <td><?php echo $action_btn; ?></td>
+                                                </tr>
+
+                                                <?php
+                                                }
+                                                echo'</tbody>
+                                                </table>';
+
+                                              }
+                                              else {
+                                                echo'  <p class="text-center text-muted"><i class="fa fa fa-usd fa-3x"></i> <br><br> No expense <br></p>';
+
+                                              }
+                                                ?>
+                                                </div>
+
+                                                </div>
+
+                                                </div>
                                                 </div>
                                                 <div class="tab-pane fade" id="tab_screenshots">
                                                   <div class="row">

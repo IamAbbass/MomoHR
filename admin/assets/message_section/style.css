@@ -53,7 +53,7 @@
     padding: 8px 5px !important;
 }
 .select2-search, .select2-search__field{
-    /*width:100%;*/   
+    /*width:100%;*/
 }
 .select2-selection__choice{
     background-color: #cbe6fe !important;
@@ -69,21 +69,21 @@
 
 
 .fa-customised-img{
-    
+
 }
 .fa-customised-img img{
     width: 14px;
     border-radius: 100% !important;
 }
 .msg_opt{
-    
+
 }
 .popover{
     border-radius:5px !important;
 }
 .popover-content{
     padding:5px;
-    background: #333 !important; 
+    background: #333 !important;
     border-radius:5px !important;
 }
 .popover_ul{
@@ -125,7 +125,7 @@
 #attachment_pic, .attachment_close{
 	display:none;
 }
-.reply_content {    
+.reply_content {
     border-left: 2px solid #2ab4c0;
     margin: 5px 0 5px 0;
     border-radius: 5px !important;
@@ -168,16 +168,16 @@
     background: #ed6b75 !important;
 }
 .msg_buttons{
-	
+
 }
 .edit_buttons{
     display:none;
 }
 .msg_buttons, .edit_buttons{
-    padding:10px;	
+    padding:10px;
 }
 .msg_buttons button, .edit_buttons button{
-    padding:6px 7px;	
+    padding:6px 7px;
 }
 .current_chat .media{
     border-radius:15px !important
@@ -185,16 +185,16 @@
 .group_info{
     display:none;
 }
-		
+
 .show_reply_box{
 	border: none;
 	background: transparent;
 	font-size: 11px;
 	padding: 2px;
-}       
+}
 .bubble_sent i{
 	color:#fff !important;
-} 
+}
 .bubble_sent .show_reply_box:hover{
 	border-radius: 5px !important;
 	background: #fff;
@@ -206,7 +206,7 @@
 	color: #fff;
 }
 
-    
+
 .in_msg_reply_name{
     font-size: 12px;
     font-weight: bold;
@@ -250,7 +250,7 @@
 }
 .portlet.light {
 	padding: 5px 15px 5px !important;
-    
+
 }
 #main_frame{
 	padding:0 !important;
@@ -261,7 +261,7 @@
 /* only for this page START*/
 .get_replies{
 	margin-top:2px;
-}        
+}
 .reply_elem{
 	display:none !important;
 }
@@ -288,7 +288,7 @@
 	font-weight:bold !important;
 }
 .ch_unread .ch_fullname, .ch_unread .ch_msg, .ch_unread .ch_date_time{
-	color: #36c6d3 !important; 
+	color: #36c6d3 !important;
 }
 
 .load-sm{
@@ -319,25 +319,25 @@
 }
 .input-inline{
 	margin:0 !important;
-}   
+}
 .portlet-body{
 	min-height:350px;
 }
 .portlet{
-	height: -webkit-fill-available;            
+	height: -webkit-fill-available;
 	height: -moz-available;
-	height: fill-available;            
+	height: fill-available;
 	margin: 0;
 }
 .portlet>.portlet-title{
 	border:none !important;
 }
 .chat-box {
-	padding:0 !important;  
-	height: -webkit-fill-available;            
+	padding:0 !important;
+	height: -webkit-fill-available;
 	height: -moz-available;
-	height: fill-available; 
-	border-top: 1px solid #ddd;		
+	height: fill-available;
+	border-top: 1px solid #ddd;
 }
 .chat-heading{
 	display: none;
@@ -346,7 +346,7 @@
 	width: 100%;
 	position:static;
 	border-bottom:1px solid #eee;
-	
+
 }
 
 .chat-footer {
@@ -384,17 +384,17 @@
 	display: none;
 	width: 100%;
 	padding: 15px 0;
-} 
+}
 .chat-messages-container {
 	border-right:1px solid #eee;
-} 
-	   
+}
+
 .bubble_received, .bubble_sent{
 	padding: 5px 6px;
 	border-radius: 15px !important;
 	margin: 0 !important;
 	max-width: 80%;
-}         
+}
 .bubble_received .message_attr, .bubble_sent .message_attr{
 	display: block;
 	font-size: 11px;
@@ -405,13 +405,13 @@
 	display: none;
 }
 .bubble_received .message_attr{
-	
+
 }
 .bubble_sent .message_attr{
-	
+
 }
 
-.bubble_sent{            
+.bubble_sent{
 	background: #4080ff;
 	color: #fff;
 	float: right;
@@ -424,12 +424,12 @@
 
 
 .product_pic{
-	
-	
+
+
 }
 .product_pic p{
-		
-} 
+
+}
 
 #bulk_action{
 	display:none;
@@ -446,17 +446,17 @@
 .todo-tasklist-item-title{
 	height: 24px;
 	overflow: hidden;
-}        
+}
 .pre-text-help {
 	margin: 30px 0 !important;
 	opacity: 0.75;
-}        
+}
 .pre-text-help i{
-	display: block;    
+	display: block;
 	margin-bottom: 10px;
 }
 .pre-text-help p{
-	display: block;    
+	display: block;
 }
 .user_container_footer{
 	width: 100%;
@@ -470,7 +470,7 @@
 		padding-top:0;
 }
 .select_product_container{
-	
+
 }
 .select_product {
 	float: left;
@@ -499,11 +499,11 @@
 .selected_product {
 	background: #ddd;
 	border:1px solid #aaa;
-}        
+}
 .product_cart{
-	height: -webkit-fill-available;            
+	height: -webkit-fill-available;
 	height: -moz-available;
-	height: fill-available; 
+	height: fill-available;
 	padding:0 !important;
 }
 
@@ -532,7 +532,7 @@ table td, table th, table tr{
 	padding: 0 !important;
 	height: 24px;
 	margin: 0 0 0 0;
-}        
+}
 .medium_input{
 	width: 100px;
 	padding:3px;
@@ -543,10 +543,10 @@ table td, table th, table tr{
 
 .form-group {
 	margin-bottom: 0px !important;
-} 
+}
 .user_ready{
 	padding: 8px 8px 8px 8px !important;
-}    
+}
 
 
 .ch{
@@ -561,10 +561,10 @@ table td, table th, table tr{
 }
 
 
-  
+
 #del_bulk_btn, #del_bulk_reset{
 	display:none;
-}        
+}
 
 /* update*/
 #search_users{
@@ -575,13 +575,13 @@ table td, table th, table tr{
 	margin: 5px auto;
 	border-radius: 8px !important;
 	display: block;
-}        
+}
 .user_container {
 	padding: 0 !important;
-	overflow-y: auto;            
-	height: -webkit-fill-available;            
+	overflow-y: auto;
+	height: -webkit-fill-available;
 	height: -moz-available;
-	height: fill-available; 
+	height: fill-available;
 	border-right: 1px solid #ddd;
 	border-top: 1px solid #ddd;
 	background: #fff;
@@ -616,7 +616,7 @@ table td, table th, table tr{
 	left:0px;
 	position: relative;
 	color:#f1c40f;
-} 
+}
 .todo-tasklist-item-title {
 	height: 24px;
 	overflow: hidden;
@@ -630,7 +630,7 @@ table td, table th, table tr{
 .todo-tasklist-item-border-blue {
 	background: #fff !important;
 }
-.todo-tasklist-item-border-blue .user_name, 
+.todo-tasklist-item-border-blue .user_name,
 .todo-tasklist-item-border-blue .todo-tasklist-date,
 .todo-tasklist-item-border-blue .todo-tasklist-date i{
 	color: #33bfcb !important;
@@ -686,15 +686,15 @@ select[name='size'],select[name='color']{
 	font-size: 11px !important;
 	padding: 2px 0 !important;
 	height: 15px;
-	width: 15px; 
+	width: 15px;
 }
 
 
 
 
-	
+
 .message_photo_box{
-	
+
 }
 .message_photo {
 	width: 225px;
@@ -714,7 +714,7 @@ select[name='size'],select[name='color']{
 	display: block;
 }
 .pic_to_cart{
-	
+
 }
 
 .cart_img{
@@ -736,10 +736,10 @@ select[name='size'],select[name='color']{
 	top: 75px;
 	right: 20px;
 	z-index: 1000000;
-	box-shadow: 0 0 30px #bbbbbb;            
+	box-shadow: 0 0 30px #bbbbbb;
 	display:none;
 	max-width:300px;
-}  
+}
 .td_border{
 	border: 1px solid #eee;
 	border-radius: 5px !important;
@@ -752,7 +752,7 @@ select[name='size'],select[name='color']{
 	border-bottom: 1px solid #eee;
 }
 .select_color, .select_size, .new_product_color, .new_product_size {
-	width: 100%;            
+	width: 100%;
 }
 .select_size, .new_product_size{
 	border: none;
@@ -804,7 +804,7 @@ select[name='size'],select[name='color']{
 	text-align:center;
 }
 
-.bubble_sent .msg_file{   
+.bubble_sent .msg_file{
 	color: #fff;
 	display: block;
 	padding: 10px 0 0 0;
@@ -834,10 +834,10 @@ select[name='size'],select[name='color']{
     color: #000;
 }
 .msg_forward{
-	
+
 }
 .msg_info{
-	
+
 }
 
 .msg_forward, .msg_info{
@@ -849,4 +849,40 @@ select[name='size'],select[name='color']{
 }
 #msg_info_data .sent, #msg_info_data .delivered, #msg_info_data .seen{
     text-transform: capitalize;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
