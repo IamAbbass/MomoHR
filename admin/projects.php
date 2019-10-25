@@ -308,7 +308,24 @@
                           $count++;
 
                           $btn_update="<span class='btn btn-primary' data-toggle='modal' data-target='#updatemodal".$row['id']."'><i class='fa fa-refresh'></i> Update</span>";
-                          $btn_delete="<a href='exe_project.php?id=".$row['id']."'class='btn btn-danger'><i class='fa fa-refresh'></i> Delete</a>";
+                          //$btn_delete="<a href='exe_project.php?id=".$row['id']."'class='btn btn-danger'><i class='fa fa-refresh'></i> Delete</a>";
+                          $btn_delete="<span class='btn btn-danger' data-toggle='modal' data-target='#comfrim".$row['id']."'><i class='fa fa-refresh'></i> Delete</span>";
+                          echo'<div class="modal fade" id="comfrim'.$row['id'].'" role="dialog">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">$times;</button>
+                                <h4><i class="fa fa-exclamation-triangle"></i> Do you really want to remove this <strong>'.$row['project_name'].'</strong> Project ?</h4>
+                              </div>
+                              <div class="modal-body">
+                                <div class="">
+                                <a href="exe_project.php?id='.$row['id'].'" type="submit" name="" class="btn btn-primary">Yes</a>
+                                  <span class="btn btn-default" data-dismiss="modal">No</span>
+                                </div>
+                              </div>
+                            </div>
+                            </div>
+                          </div>';
 
 
                             echo "<tr>
@@ -316,7 +333,7 @@
                               <td>".$row['project_name']."</td>
                               <td>$company_name</td>
                               <td>".my_simple_date($row['date_time'])."</td>
-                              <td>$btn_update.$btn_delete</td>
+                              <td>$btn_update $btn_delete</td>
                             </tr>";
                             echo'<div class="modal fade" id="updatemodal'.$row['id'].'" role="dialog">
                               <div class="modal-dialog">
@@ -468,6 +485,11 @@
 		<script src="assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
 
 		<!-- END THEME LAYOUT SCRIPTS -->
+    <script>
+    $(document).ready(function(){
+      $('[data-toggle="popover"]').popover();
+    });
+    </script>
 
 
                <script>
