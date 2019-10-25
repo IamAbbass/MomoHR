@@ -1053,8 +1053,8 @@
                                                                   <label> Expense Attachment: </label>
                                                                 </div>
                                                                 <div class=" col-md-8 form-group">
-                                                                  <input type="hidden" name="MAX_FILE_SIZE" value="512000" class="" />
-                                                                  <input type="file" name="userfile" class="">
+                                                                  <input type="hidden" name="MAX_FILE_SIZE" value="512000" class="" required/>
+                                                                  <input type="file" name="userfile" class="" required>
                                                                 </div>
                                                               </div>
 

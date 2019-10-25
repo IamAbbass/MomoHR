@@ -253,7 +253,7 @@
                           <h1 style="margin:0px; padding:10px;"> <i class="fa fa-tasks"></i> Projects</h1>
                         </div>
                         <div class="col-md-3">
-                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal_pro">Add New Project</button>
+                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal_pro" style="margin-left:55px">Add New Project</button>
                           <div class="modal fade" id="myModal_pro" role="dialog">
                             <div class="modal-dialog">
                             <div class="modal-content">
