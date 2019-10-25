@@ -7,7 +7,6 @@
   	require_once('../class_function/language.php');
 
 
-
 $user_id = $_SESSION['SESS_ID'];
 $user_name= $_SESSION['SESS_FULLNAME'];
 $user_email= $_SESSION['SESS_EMAIL'];
@@ -18,12 +17,13 @@ $expense_title = $_POST['expense_title'];
 $expense_amount = $_POST['expense_amount'];
 $expense_project = $_POST['project_name'];
 $expense_slip = "expense_slip/".$_FILES['userfile']['name'];
-$expense_reason = $_POST['expense_reason'];
 
 $uploaddir = 'expense_slip/';
 $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
 
 echo "<p>";
+
+//die(json_encode($_POST));
 
 if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
   echo "File is valid, and was successfully uploaded.\n";
@@ -43,7 +43,13 @@ print "</pre>";
    //die(json_encode($expense_slip));
 
 
-sql($DBH,"insert into tbl_expense_refund (company_id,employee_id,title,amount,attachment,project_id,date_time,status,reason,status_date_time) values(?,?,?,?,?,?,?,?,?,?)",array($company_id,$user_id,$expense_title,$expense_amount,$expense_slip,$expense_project,time(),"pending",$expense_reason,time()),"rows");
+$row = sql($DBH,"insert into tbl_expense_refund (company_id,employee_id,title,amount,attachment,project_id,date_time,status,status_date_time) values(?,?,?,?,?,?,?,?,?)",array($company_id,$user_id,$expense_title,$expense_amount,$expense_slip,$expense_project,time(),"pending",time()),"rows");
+  if(!isset($row)){
+    $_SESSION['info'] = 'New Expense has been Created';
+  }
+  else{
+    $_SESSION['msg'] = "Something Wrong! Expense isn't Created Try Again";
+  }
 
 redirect("reports.php#tab_expense");
 //die(json_encode($_SESSION));

@@ -954,10 +954,123 @@
                                                 <h2 class="page-title no_margin"> <i class="fa fa-usd"></i> Expense</h2>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <a href="add_project.php#tab_expense" type="button" class="btn btn-primary" name="btn-expense">Add New Project</a>
+                                                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal_pro">Add New Project</button>
+                                                  <div class="modal fade" id="myModal_pro" role="dialog">
+                                                    <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                      <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">$times;</button>
+                                                        <h4>Add New Project</h4>
+                                                      </div>
+                                                      <form  action="exe_add_project.php" method="post">
+
+                                                      <div class="modal-body">
+                                                        <div class="row form-group">
+                                                          <div class="col-md-4">
+                                                            <label> Project Name: </label>
+                                                            <input type="text" name="retrun" value="reports.php#tab_expense" class="hidden">
+                                                          </div>
+                                                          <div class="col-md-8">
+                                                            <input type="text" name="proj_name" autocomplete="off" class="form-control" required>
+                                                          </div>
+                                                        </div>
+
+                                                      </div>
+                                                      <div class="modal-footer">
+                                                        <div class="">
+                                                          <input type="submit" name="" value="Save" class="btn btn-primary">
+                                                        </div>
+                                                      </div>
+                                                    </form>
+                                                    </div>
+                                                    </div>
+                                                  </div>
                                                 </div>
                                                 <div class="col-md-3">
-                                                  <a href="add_expense.php#tab_expense" type="button" class="btn btn-primary" name="btn-expense">Add New Expense</a>
+                                                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal_exp">Add New Expense</button>
+                                                  <div class="modal fade" id="myModal_exp" role="dialog">
+                                                    <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                      <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">$times;</button>
+                                                        <h4>Add New Expense </h4>
+                                                      </div>
+                                                      <form class="" action="exe_add_expense.php" method="post" enctype="multipart/form-data">
+                                                      <div class="modal-body">
+                                                        <div class="">
+
+                                                              <div class="row form-group">
+                                                                <div class="col-md-4">
+                                                                  <label> Expense Title: </label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                  <input type="text" name="expense_title" autocomplete="off" class="form-control" required>
+                                                                </div>
+                                                              </div>
+                                                              <div class="row form-group">
+                                                                <div class="col-md-4">
+                                                                  <label> Expense Amount: </label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                  <input type="text" name="expense_amount" autocomplete="off" class="form-control" required>
+                                                                </div>
+                                                              </div>
+
+                                                              <div class="row form-group">
+                                                                <div class="col-md-4">
+                                                                  <label for="">Expense Project:</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                  <select class="form-control" name="project_name">
+                                                                    <option value="null">Choose Project</option>
+                                                                        <?php $menu = sql($DBH,"select * from tbl_add_project where company_id=?",array($_SESSION['SESS_COMPANY_ID']),"rows");
+                                                                                    foreach ($menu as $row) {
+                                                                                          $value = $row;
+                                                                                          echo "<option value='".$value['id']."'>".$value['project_name']."</option>";
+                                                                                    }
+                                                                         ?>
+                                                                  </select>
+                                                                </div>
+                                                              </div>
+
+                                                              <!-- <div class="row">
+                                                                <div class="col-md-4">
+                                                                  <label> Expense Attachment: </label>
+                                                                </div>
+                                                                <div class=" col-md-8 form-group">
+                                                                  <div class="input-group input-file">
+                                                                    <input type="text" class="form-control" placeholder="Choose a file..."/>
+                                                                    <span class="input-group-btn">
+                                                                      <button type="file" class="btn btn-default btn-choose">Choose</button>
+                                                                    </span>
+
+                                                                  </div>
+                                                                </div>
+                                                              </div> -->
+
+                                                              <div class="row">
+                                                                <div class="col-md-4">
+                                                                  <label> Expense Attachment: </label>
+                                                                </div>
+                                                                <div class=" col-md-8 form-group">
+                                                                  <input type="hidden" name="MAX_FILE_SIZE" value="512000" class="" />
+                                                                  <input type="file" name="userfile" class="">
+                                                                </div>
+                                                              </div>
+
+                                                        </div>
+                                                      </div>
+                                                      <div class="modal-footer">
+
+                                                        <div class="col-md-12">
+                                                          <input type="submit" class="btn btn-primary" name="btn_proj" value="Save">
+                                                        </div>
+
+                                                      </div>
+                                                    </form>
+                                                    </div>
+                                                    </div>
+                                                  </div>
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
                                                     	<br />
@@ -1129,7 +1242,13 @@
                                                 </span>";
 
                                                 if($status == "rejected"){
-                                                $status .= ": <b>$reason</b>";
+                                                  if(!empty($reason)){
+                                                    $status .= ": <b>$reason</b>";
+                                                    }
+                                                  else{
+                                                    $status .= ": <b>No Reason</b>";
+
+                                                  }
                                                 }
 
                                                 $action_btn 	.= "<span expense_id='$id' action='no_action' $btn_no_action class='action_opt'>".ucfirst($status)."</span>";

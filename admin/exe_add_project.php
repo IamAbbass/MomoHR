@@ -15,9 +15,18 @@ $company_id= $_SESSION['SESS_COMPANY_ID'];
 
 $project_name = $_POST['proj_name'];
 
+$retrun = $_POST['retrun'];
+//die(json_encode($project_name));
+$row = sql($DBH,"insert into tbl_add_project (project_name,company_id,user_id,date_time) values(?,?,?,?)",array($project_name,$company_id,$user_id,time()),"rows");
 
-sql($DBH,"insert into tbl_add_project (project_name,company_id,user_id,date_time) values(?,?,?,?)",array($project_name,$company_id,$user_id,time()),"rows");
+//die(json_encode($row));
+if(!isset($row)){
+  $_SESSION['info']= "New Project has been Created";
+}
+else{
+  $_SESSION['msg']= "Something Wrong! Project isn't Created Try Again";
+}
 
-redirect("reports.php#tab_expense");
+redirect($retrun);
 //die(json_encode($_SESSION));
   ?>

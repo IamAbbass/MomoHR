@@ -1533,13 +1533,13 @@
 
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <i class="fa fa-mouse-pointer"></i>
+                                                        <i class="fa fa-mouse-pointer" data-toggle="tooltip" title="'.round($mouse,2).'%"></i>
                                                         <div class="progress mouse_movement">
                                                             <div class="progress-bar" role="progressbar" aria-valuenow="'.$mouse.'" style="width: '.$mouse.'%"  aria-valuemin="0" aria-valuemax="100"></div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <i class="fa fa-keyboard-o"></i>
+                                                        <i class="fa fa-keyboard-o" data-toggle="tooltip" title="'.round($keyboard,2).'%"></i>
                                                         <div class="progress keyboard_movement">
                                                           <div class="progress-bar" role="progressbar" aria-valuenow="'.$keyboard.'" style="width: '.$keyboard.'%"  aria-valuemin="0" aria-valuemax="100"></div>
                                                         </div>

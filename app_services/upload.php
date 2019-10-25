@@ -162,13 +162,15 @@
         $ossClient = new OssClient($accessKeyId, $accessKeySecret, $endpoint);
         $object = "attachments/".$fileName;
         try{
-            $result = $ossClient->uploadFile($bucket, $object, $_FILES['shot']['tmp_name']);
+           $result = $ossClient->uploadFile($bucket, $object, $_FILES['shot']['tmp_name']);
 
             $date_time      = time($result['date']);
             $url            = $result['info']['url'];
             $size_upload    = $result['info']['size_upload'];
             $primary_ip     = $result['info']['primary_ip'];
             $content_type   = $result['oss-requestheaders']['Content-Type'];
+
+						//die(json_encode($screenshot));
             sql($DBH, "insert into tbl_alibaba
             (admin_id,url,content_type,size_upload,primary_ip,date_time)
             values (?,?,?,?,?,?);",
@@ -178,35 +180,23 @@
             $arr['url']     = $url;
             $arr['size']    = $size_upload;
 
-						if(empty($mouse)){
-							$mouse = 0;
-						}
-						if(empty($keyboard)){
-							$keyboard = 0;
-						}
-        /*$output_file    =
-
-        $ifp = fopen( $output_file, 'wb' );
-        $data = explode( ',', $base64_string );
-        fwrite( $ifp, base64_decode( $data[ 1 ] ) );
-        fclose( $ifp );
+					$company_id = find_company_id($u_id);
 
 
-        die("NO:".$output_file);
-        */
-					//die('this is from local host');
-		$company_id = find_company_id($u_id);
-
-        sql($DBH, "insert into tbl_screenshot(company_id,employee_id,image,mouse,keyboard,date_time) values (?,?,?,?,?,?)",
+        $row = sql($DBH, "insert into tbl_screenshot(company_id,employee_id,image,mouse,keyboard,date_time) values (?,?,?,?,?,?)",
       	array($company_id,$u_id,$url,$mouse,$keyboard,time()), "rows");
-        die('send and store'.$mouse.":".$keyboard);
+				if(!isset($row)){
+        die('send and store '.$mouse.":".$keyboard);
+			}
+			else{
+				die("not uploaded");
+			}
 
        }
        catch(OssException $e) {
             $arr['error']   = print_r($e->getMessage(),true);
-            die(json_encode($array));
+            die(json_encode("not upload"));
        }
-
 
     }
 

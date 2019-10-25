@@ -157,6 +157,13 @@
 							//<i class='fa fa-briefcase'></i><span class='title'> Compensation</span></a></li>";
 
 							}
+							if($SESS_ACCESS_LEVEL == "root admin" || ($SESS_ACCESS_LEVEL == "admin" && $perm['perm_company'] == "true")){
+
+ $menu_body .= "<li class='nav-item'><a href='projects.php' class='nav-link nav-toggle'>
+
+ <i class='fa fa-tasks'></i><span class='title'>Projects</span></a></li>";
+
+}
 
 
 
@@ -365,7 +372,7 @@
 							<i class='fa fa-envelope-square'></i><span class='title'>$message_section <span id='message_count' style='display:none' class='badge badge-danger'>$message_count</span></span></a></li>";
 
                             //}
-                            
+
                             $menu_body .= "<li class='nav-item'><a href='setting.php' class='nav-link nav-toggle'>
 
 							<i class='fa fa-gear'></i><span class='title'>Settings </span></a></li>";
